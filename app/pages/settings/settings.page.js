@@ -9,7 +9,12 @@ class SettingsPage extends React.Component {
       return (
         <View>
             <ScrollView showsVerticalScrollIndicator={false}>
-                <View></View>
+                <View style={this.styles.header}>
+                    
+                </View>
+                <View style={this.styles.content}>
+                    
+                </View>
             </ScrollView>
         </View>
       );
@@ -20,6 +25,17 @@ class SettingsPage extends React.Component {
             flex:1,
             width:'100%',
             height:'100%'
+        },
+        header:{
+            flex:0.5,
+            width:'100%',
+            height:200,
+            borderBottomRightRadius: 10,
+            borderBottomLeftRadius: 10,
+        },
+        content:{
+            flex:1,
+            width:'100%',
         }
     });
 }
