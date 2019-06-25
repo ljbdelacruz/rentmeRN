@@ -21,8 +21,6 @@ class DashboardPage extends React.Component {
                         </View>
                         <RecommendedContainer1></RecommendedContainer1>
                         <ViewAdInfo1 isVisible={false}></ViewAdInfo1>
-
-                        
                       </ScrollView>
                   </View>
           </View>

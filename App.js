@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {createStackNavigator, createAppContainer} from 'react-navigation'
-import LoginPage from './app/pages/login/login.ui'
+import LoginPage from './app/pages/login/login.page'
 import DashboardPage from './app/pages/dashboard/dashboard.page'
 
 const MainNavigator = createStackNavigator({
