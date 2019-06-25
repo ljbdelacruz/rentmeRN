@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, ScrollView } from 'react-native';
+import { View, StyleSheet, ScrollView, Text } from 'react-native';
 import {AdsDisplay1} from '../../components/container/ads/adsDisplay1/adsDisplay1.ui'
 import {DashboardHeader1} from '../../components/header/DashboardHeader1/dashboardHeader1.ui'
-
+import {RecommendedContainer1} from '../../components/container/recommendedContainer1/recommendedContainer.ui'
 class DashboardPage extends React.Component {
     static navigationOptions = {
       title: 'Dashboard',
@@ -10,14 +10,21 @@ class DashboardPage extends React.Component {
     render() {
         const {navigate} = this.props.navigation;
         return (
-          <View style={this.styles.container}>              
-              <DashboardHeader1></DashboardHeader1>
-              {/* <View style={this.styles.dashboardDisplay}>
-                <ScrollView>
-                  <AdsDisplay1></AdsDisplay1>
-                  <AdsDisplay1></AdsDisplay1>
-                </ScrollView>
-              </View> */}
+          <View style={this.styles.container}>
+                  <View style={this.styles.mainContainer}>
+                      <ScrollView showsVerticalScrollIndicator={false}>
+                        <DashboardHeader1></DashboardHeader1>
+                        <View style={this.styles.adsContainer}>
+                          <View style={this.styles.adViews}>
+                            <AdsDisplay1></AdsDisplay1>
+                          </View>
+                          <View style={this.styles.adViews}>
+                            <AdsDisplay1></AdsDisplay1>
+                          </View>
+                        </View>
+                        <RecommendedContainer1></RecommendedContainer1>
+                      </ScrollView>
+                  </View>
           </View>
         );
     }
@@ -27,15 +34,27 @@ class DashboardPage extends React.Component {
             width:'100%',
             height:'100%',
             position:'absolute',
-            top:0
+            top:0,
+            zIndex:1
         },
-        dashboardDisplay:{
+        adViews:{
+          marginBottom:10
+        },
+        scrollview:{
+          width:'100%',
+        },
+        mainContainer:{
+          flex:1,
+          width:'100%',
+          zIndex:1,
+        },
+        adsContainer:{
           width:'90%',
-          left: '5%',
-          position:'absolute',
-          top:150,
-          zIndex:2,
-        },
+          left:'5%',
+          marginTop:-60,
+          zIndex:2
+        }
+
 
     });
   }
