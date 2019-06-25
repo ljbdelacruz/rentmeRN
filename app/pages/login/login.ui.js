@@ -60,8 +60,6 @@ class LoginPage extends React.Component {
             marginTop: 10,
             width: '90%'
         }
-
-
     });
 }
 export default LoginPage;
