@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Button, View } from 'react-native';
+import { StyleSheet, Button, View, TouchableOpacity } from 'react-native';
 import {AdsDisplay1} from '../adsDisplay1/adsDisplay1.ui'
+import {ViewAdInfo1} from '../../modals/viewAdInfo/viewAdInfo.modal'
+
 export class AdsList1 extends Component {
     constructor(prop){
         super(prop);
@@ -14,9 +16,9 @@ export class AdsList1 extends Component {
         <View>
              {adsList.map(ads => {
                     return (
-                        <View style={this.styles.adViews}>
+                        <TouchableOpacity style={this.styles.adViews}>
                            <AdsDisplay1 mytitle={ads.title} mydesc={ads.description} myprice={ads.price} mysubdesc='Per Night'></AdsDisplay1>
-                        </View>
+                        </TouchableOpacity>
                     );
               })}
         </View>

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, ScrollView, Text } from 'react-native';
-import {AdsDisplay1} from '../../components/container/ads/adsDisplay1/adsDisplay1.ui'
+import { View, StyleSheet, ScrollView } from 'react-native';
 import {DashboardHeader1} from '../../components/header/DashboardHeader1/dashboardHeader1.ui'
 import {RecommendedContainer1} from '../../components/container/recommendedContainer1/recommendedContainer.ui'
-
 import {AdsList1} from '../../components/container/ads/adsList1/adsList1.ui'
+import {ViewAdInfo1} from '../../components/container/modals/viewAdInfo/viewAdInfo.modal'
+
 class DashboardPage extends React.Component {
     static navigationOptions = {
       title: 'Dashboard',
@@ -20,6 +20,9 @@ class DashboardPage extends React.Component {
                           <AdsList1></AdsList1>
                         </View>
                         <RecommendedContainer1></RecommendedContainer1>
+                        <ViewAdInfo1 isVisible={false}></ViewAdInfo1>
+
+                        
                       </ScrollView>
                   </View>
           </View>
