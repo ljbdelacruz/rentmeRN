@@ -1,31 +1,25 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, ScrollView, Button } from 'react-native';
+import { StyleSheet, View, ScrollView, Button, Text } from 'react-native';
 import {CustomButton1} from '../../buttons/customButton1/customButton1.ui'
 
 export class CategoryContainer1 extends Component {
     constructor(props){
         super(props)
+        categories=[{name:'Car', isSelected:false}, {name:'Housing', isSelected:false}, {name:'Services', isSelected:false},
+        {name:'Equipments', isSelected:false}, {name:'Dorm', isSelected:false}]
+
     }
     render() {
       return (
           <View style={this.styles.container}>
               <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={this.styles.scrollviewContainer}>
-                <View style={this.styles.buttons}>
-                    <CustomButton1 title="Car" ></CustomButton1>
-                </View>
-                <View style={this.styles.buttons}>
-                    <CustomButton1 title="Housing" ></CustomButton1>
-                </View>
-                <View style={this.styles.buttons}>
-                    <CustomButton1 title="Services" ></CustomButton1>
-                </View>
-                <View style={this.styles.buttons}>
-                    <CustomButton1 title="Equipments" ></CustomButton1>
-                </View>
-                <View style={this.styles.buttons}>
-                    <CustomButton1 title="Dorm" ></CustomButton1>
-                </View>
-
+              {categories.map(category => {
+                    return (
+                        <View style={this.styles.buttons}>
+                            <CustomButton1 title={category.name} ></CustomButton1>
+                        </View>
+                    );
+              })}
               </ScrollView>
           </View>
       );

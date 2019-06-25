@@ -45,6 +45,7 @@ export class CustomButton1 extends Component {
             }),
             borderRadius: 10,
         },
+
     });
 
   }

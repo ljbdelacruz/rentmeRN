@@ -16,12 +16,12 @@ export class AdsDisplay1 extends Component {
               <View style={this.styles.container2}>
                   <View style={this.styles.infoContainer}>
                       <View style={this.styles.rightContainer}>
-                        <Text style={this.styles.titleStyle}>Suburban Loft</Text>
-                        <Text style={this.styles.contentStyle}>3 Bed Room All around for you this is the best place for people who are planning on starting a family</Text>
+                        <Text style={this.styles.titleStyle}>{this.props.mytitle}</Text>
+                        <Text style={this.styles.contentStyle}> {this.props.mydesc}</Text>
                       </View>
                       <View style={this.styles.leftContainer}>
-                        <Text style={this.styles.priceStyle}>$20</Text>
-                        <Text style={this.styles.subDescPriceStyle}>Per night</Text>
+                        <Text style={this.styles.priceStyle}>{this.props.myprice}</Text>
+                        <Text style={this.styles.subDescPriceStyle}>{this.props.mysubdesc}</Text>
                       </View>
                   </View>
               </View>

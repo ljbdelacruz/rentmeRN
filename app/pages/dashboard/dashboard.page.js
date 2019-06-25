@@ -3,6 +3,8 @@ import { View, StyleSheet, ScrollView, Text } from 'react-native';
 import {AdsDisplay1} from '../../components/container/ads/adsDisplay1/adsDisplay1.ui'
 import {DashboardHeader1} from '../../components/header/DashboardHeader1/dashboardHeader1.ui'
 import {RecommendedContainer1} from '../../components/container/recommendedContainer1/recommendedContainer.ui'
+
+import {AdsList1} from '../../components/container/ads/adsList1/adsList1.ui'
 class DashboardPage extends React.Component {
     static navigationOptions = {
       title: 'Dashboard',
@@ -15,12 +17,7 @@ class DashboardPage extends React.Component {
                       <ScrollView showsVerticalScrollIndicator={false}>
                         <DashboardHeader1></DashboardHeader1>
                         <View style={this.styles.adsContainer}>
-                          <View style={this.styles.adViews}>
-                            <AdsDisplay1></AdsDisplay1>
-                          </View>
-                          <View style={this.styles.adViews}>
-                            <AdsDisplay1></AdsDisplay1>
-                          </View>
+                          <AdsList1></AdsList1>
                         </View>
                         <RecommendedContainer1></RecommendedContainer1>
                       </ScrollView>
@@ -36,9 +33,6 @@ class DashboardPage extends React.Component {
             position:'absolute',
             top:0,
             zIndex:1
-        },
-        adViews:{
-          marginBottom:10
         },
         scrollview:{
           width:'100%',
