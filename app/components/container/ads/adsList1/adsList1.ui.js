@@ -5,8 +5,9 @@ export class AdsList1 extends Component {
     constructor(prop){
         super(prop);
         adsList=[{title:'Club House', price:'$40', description:'3 Bed Room All around for you this is the best place for people who are planning on starting a family', image:[]}, 
-                 {title:'Jojos Crib', price:'$20', description:'3 Bed Room All around for you this is the best place for people who are planning on starting a family', images:[]},
-                ]
+          {title:'Jojos Crib', price:'$20', description:'3 Bed Room All around for you this is the best place for people who are planning on starting a family', images:[]},
+          {title:'Home Service Spa', price:'$20', description:'Massage Service with Sunspa treatment', images:[]}
+        ]
     }
     render() {
       return (

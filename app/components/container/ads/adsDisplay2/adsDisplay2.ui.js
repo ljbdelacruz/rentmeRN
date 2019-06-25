@@ -9,8 +9,8 @@ export class AdDisplay2 extends Component {
           <View style={this.styles.container}>
               <View style={this.styles.upperContainer}></View>
               <View style={this.styles.lowerContainer}>
-                <Text style={this.styles.titleAd}>Club House</Text>
-                <Text style={this.styles.price}>$20</Text>
+                <Text style={this.styles.titleAd}>{this.props.mytitle}</Text>
+                <Text style={this.styles.price}>{this.props.myprice}</Text>
               </View>
           </View>
       );
