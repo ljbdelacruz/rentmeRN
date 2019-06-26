@@ -19,7 +19,9 @@ export class DashboardHeader1 extends Component {
                           </View>                 
                         </View>
                         <View style={this.styles.container2}>
-                          <CustomTF1 placeholder="What Are you looking for?"></CustomTF1>
+                          <View style={this.styles.searchboxContainer}>
+                            <CustomTF1 placeholder="What Are you looking for?"></CustomTF1>
+                          </View>
                           <CategoryContainer1></CategoryContainer1>                      
                         </View>
                     </View>
@@ -58,6 +60,11 @@ export class DashboardHeader1 extends Component {
             flex:1,
             marginTop:30
           },
+          searchboxContainer:{
+            width:'96%',
+            marginLeft: '2%',
+
+          }
     });
 
   }
