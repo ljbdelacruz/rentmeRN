@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Button, View, TouchableOpacity } from 'react-native';
 import {AdsDisplay1} from '../adsDisplay1/adsDisplay1.ui'
 import {ViewAdInfo1} from '../../modals/viewAdInfo/viewAdInfo.modal'
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
 export class AdsList1 extends Component {
     constructor(prop){
@@ -16,14 +17,18 @@ export class AdsList1 extends Component {
         <View>
              {adsList.map(ads => {
                     return (
-                        <TouchableOpacity style={this.styles.adViews}>
+                        <TouchableWithoutFeedback style={this.styles.adViews}>
                            <AdsDisplay1 mytitle={ads.title} mydesc={ads.description} myprice={ads.price} mysubdesc='Per Night'></AdsDisplay1>
-                        </TouchableOpacity>
+                        </TouchableWithoutFeedback>
                     );
               })}
         </View>
       );
     }
+    setData(items){
+      this.ads=items;
+    }
+
     styles = StyleSheet.create({
         adViews:{
             marginBottom:10

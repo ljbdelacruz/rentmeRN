@@ -1,34 +1,37 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Button, View } from 'react-native';
+import { StyleSheet, TouchableOpacity, Text, View, Alert } from 'react-native';
 export class CustomButton2 extends Component {
-    constructor(prop){
-        super(prop);
+    constructor(props){
+        super(props);
     }
-
     render() {
       return (
-        <View style={styles.customButton2}>
-          <View style={styles.rect} />
-          <Text style={styles.text}>Settings</Text>
-        </View>
+          <View style={this.styles.container}>
+            <View style={this.styles.imagecontainer}></View>
+            <Text style={this.styles.text}>{this.props.mytitle}</Text>
+          </View>
       );
     }
+
     styles = StyleSheet.create({
-        customButton2: {
+        container: {
             flex:1,
             flexDirection: 'row',
-            height: 63,
+            height: 53,
             width: '100%',
+            borderColor:'gray',
+            borderBottomWidth:2
           },
-          rect: {
-            flex:0.5,
+          imagecontainer:{
             width:50,
             height:50,
-            borderRadius: '100%',            
+            borderRadius: 100,
+            backgroundColor:'red'
           },
-          text: {
-            flex:1
-          },
+          text:{
+            marginTop:15,
+            marginLeft: 10,
+          }
     });
 
   }

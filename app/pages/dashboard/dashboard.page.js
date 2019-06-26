@@ -44,8 +44,8 @@ class DashboardPage extends React.Component {
           zIndex:1,
         },
         adsContainer:{
-          width:'90%',
-          left:'5%',
+          width:'95%',
+          left:'2.5%',
           marginTop:-60,
           zIndex:2
         }

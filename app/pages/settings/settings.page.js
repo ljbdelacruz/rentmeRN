@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, ScrollView } from 'react-native';
+import { View, StyleSheet, ScrollView, Text } from 'react-native';
+import {HostSettingsMenu} from '../../components/hostSide/settingsMenu/settingsMenu.ui'
 
 class SettingsPage extends React.Component {
     constructor(props) {
@@ -12,9 +13,7 @@ class SettingsPage extends React.Component {
                 <View style={this.styles.header}>
                     
                 </View>
-                <View style={this.styles.content}>
-                    
-                </View>
+                <HostSettingsMenu></HostSettingsMenu>
             </ScrollView>
         </View>
       );
@@ -22,22 +21,17 @@ class SettingsPage extends React.Component {
 
     styles = StyleSheet.create({
         container:{
-            flex:1,
             width:'100%',
             height:'100%'
         },
         header:{
-            flex:0.5,
             width:'100%',
             height:200,
             borderBottomRightRadius: 10,
             borderBottomLeftRadius: 10,
-        },
-        content:{
-            flex:1,
-            width:'100%',
+            backgroundColor:'blue'
         }
     });
 }
-export default LoginPage;
+export default SettingsPage;
 
