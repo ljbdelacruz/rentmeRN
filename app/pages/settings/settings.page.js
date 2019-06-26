@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, ScrollView, Text } from 'react-native';
 import {HostSettingsMenu} from '../../components/hostSide/settingsMenu/settingsMenu.ui'
+import {ClientSettingsMenu} from '../../components/clientSide/settingsMenu/clientSettingsMenu.ui'
 
 class SettingsPage extends React.Component {
     constructor(props) {
@@ -13,7 +14,8 @@ class SettingsPage extends React.Component {
                 <View style={this.styles.header}>
                     
                 </View>
-                <HostSettingsMenu></HostSettingsMenu>
+                <ClientSettingsMenu></ClientSettingsMenu>
+                {/* <HostSettingsMenu></HostSettingsMenu> */}
             </ScrollView>
         </View>
       );
