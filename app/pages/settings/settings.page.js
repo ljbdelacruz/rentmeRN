@@ -12,7 +12,6 @@ class SettingsPage extends React.Component {
         <View>
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={this.styles.header}>
-                    
                 </View>
                 <ClientSettingsMenu></ClientSettingsMenu>
                 {/* <HostSettingsMenu></HostSettingsMenu> */}
