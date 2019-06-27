@@ -3,7 +3,7 @@ import {createStackNavigator, createAppContainer} from 'react-navigation'
 import LoginPage from './app/pages/login/login.page'
 import DashboardPage from './app/pages/dashboard/dashboard.page'
 import SettingsPage  from './app/pages/settings/settings.page'
-import ManageAdsPage from './app/pages/settings/settings.page'
+import ManageAdsPage from './app/pages/manageAds/manageAds.page'
 
 const MainNavigator = createStackNavigator({
   // Login: {screen: LoginPage, navigationOptions: {header: null}, key: 'login'}, 

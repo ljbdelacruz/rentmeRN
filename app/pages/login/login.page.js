@@ -4,10 +4,10 @@ import React, { Component } from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 
 class LoginPage extends React.Component {
-  static navigationOptions = {
-    title: 'Welcome',
-  };
-    constructor(props) {
+    static navigationOptions = {
+        title: 'Welcome',
+    };
+    constructor(props){
         super(props);
         this.loginVM={username:'', password: '', uuserplaceholder: 'Username', upassplaceholder:'Password'};
     }
