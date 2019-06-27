@@ -5,18 +5,22 @@ import {DescriptionDetails} from '../../../container/descriptionDetails/descript
 export class ClientManageAdsSub extends Component {
     constructor(prop){
         super(prop);
-        categories=[{title:'Rooms', count:'1'}, {title:'Bathroom', count:2}]
+        //data from parent sent to the child for display
+        this.state={
+            categories:[{title:'Rooms', count:'1'}, {title:'Bathroom', count:2}, {title:'Pool', count:1}, {title:'Gym', count:1}],
+            description:{title:'Descriptions', desc:'3 Bed Room All around for you this is the best place for people who are planning on starting a family.'}
+        }
     }
 
     render() {
       return (
         <View>
             <View style={this.styles.descContainer}>
-                <DescriptionDetails mytitle='Description' mydesc='3 Bed Room All around for you this is the best place for people who are planning on starting a family.'></DescriptionDetails>
+                <DescriptionDetails description={this.state.description}></DescriptionDetails>
             </View>
             <View style={this.styles.descContainer}>
                 <Text>Facilities</Text>
-                <SubCategoryContainer1 items={this.categories}></SubCategoryContainer1>
+                <SubCategoryContainer1 categories={this.state.categories}></SubCategoryContainer1>
             </View>
         </View>
       );

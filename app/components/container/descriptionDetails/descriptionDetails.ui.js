@@ -3,12 +3,15 @@ import { StyleSheet, View, Text } from 'react-native';
 export class DescriptionDetails extends Component {
     constructor(props){
         super(props)
+        this.setState({
+            description:{title:'', desc:''},
+        })
     }
     render() {
       return (
           <View >
-              <Text style={this.styles.title}>{this.props.mytitle}</Text>
-              <Text style={this.styles.desc}>{this.props.mydesc}</Text>
+              <Text style={this.styles.title}>{this.props.description.title}</Text>
+              <Text style={this.styles.desc}>{this.props.description.desc}</Text>
           </View>
       );
     }
