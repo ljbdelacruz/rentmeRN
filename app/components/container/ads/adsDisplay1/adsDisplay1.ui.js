@@ -74,10 +74,10 @@ export class AdsDisplay1 extends Component {
         infoContainer:{
             flex:1,
             flexDirection: 'row',
-            height:150,
             borderBottomLeftRadius: 10,
             borderBottomRightRadius: 10,
             width:'100%',
+            paddingBottom: 20,
             marginLeft: 0,
             marginRight: 0,
         },

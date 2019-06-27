@@ -9,6 +9,14 @@ class DashboardPage extends React.Component {
     static navigationOptions = {
       title: 'Dashboard',
     };
+    constructor(props){
+      super(props)
+      this.ads=[
+        {images:[], title:'Jojos Crib', desc:'3 Bed Room All', price:'$40', priceSubtitle:'Per Night', owner:{title:'Detective Pikachu', subtitle:'Owner', profileImage:'', rightImage:''}},
+        {images:[], title:'Club House', desc:'3 Bed Room All around for you this is the best place for people who are planning on starting a family', price:'$40', priceSubtitle:'Per Night', owner:{title:'Squirtle Mash', subtitle:'Co-Host', profileImage:'', rightImage:''}}
+      ]
+    }
+
     render() {
         const {navigate} = this.props.navigation;
         return (
@@ -16,9 +24,11 @@ class DashboardPage extends React.Component {
                   <View style={this.styles.mainContainer}>
                       <ScrollView showsVerticalScrollIndicator={false}>
                         <DashboardHeader1></DashboardHeader1>
+
                         <View style={this.styles.adsContainer}>
-                          <AdsList1></AdsList1>
+                          <AdsList1 adsList={this.ads}></AdsList1>
                         </View>
+
                         <RecommendedContainer1></RecommendedContainer1>
                         <ViewAdInfo1 isVisible={false}></ViewAdInfo1>
                       </ScrollView>
