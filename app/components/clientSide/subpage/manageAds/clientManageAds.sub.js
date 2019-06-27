@@ -20,6 +20,7 @@ export class ClientManageAdsSub extends Component {
             <View style={this.styles.titleContainer}>
                 <AdsInfoContainer1 ad={this.state.ad}></AdsInfoContainer1>
             </View>
+            
             <View style={this.styles.descContainer}>
                 <DescriptionDetails description={this.state.description}></DescriptionDetails>
             </View>

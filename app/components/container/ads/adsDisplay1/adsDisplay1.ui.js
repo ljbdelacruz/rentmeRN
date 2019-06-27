@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import { Platform, TextInput, StyleSheet, View, Image, Text } from 'react-native';
+import {UserInfoInquiry1} from '../../userInfoInquiry1/userInfoInquiry.ui'
 export class AdsDisplay1 extends Component {
     constructor(props){
         super(props)
+        this.setState({
+            adInfo:{images:[], title:'', desc:'', price:'', priceSubtitle:'', owner:{title:'', subtitle:'', profileImage:'', rightImage:''}}
+        })
     }
     render() {
       return (
@@ -16,13 +20,16 @@ export class AdsDisplay1 extends Component {
               <View style={this.styles.container2}>
                   <View style={this.styles.infoContainer}>
                       <View style={this.styles.rightContainer}>
-                        <Text style={this.styles.titleStyle}>{this.props.mytitle}</Text>
-                        <Text style={this.styles.contentStyle}> {this.props.mydesc}</Text>
+                        <Text style={this.styles.titleStyle}>{this.props.adInfo.title}</Text>
+                        <Text style={this.styles.contentStyle}> {this.props.adInfo.desc}</Text>
                       </View>
                       <View style={this.styles.leftContainer}>
-                        <Text style={this.styles.priceStyle}>{this.props.myprice}</Text>
-                        <Text style={this.styles.subDescPriceStyle}>{this.props.mysubdesc}</Text>
+                        <Text style={this.styles.priceStyle}>{this.props.adInfo.price}</Text>
+                        <Text style={this.styles.subDescPriceStyle}>{this.props.adInfo.priceSubtitle}</Text>
                       </View>
+                  </View>
+                  <View>
+                    <UserInfoInquiry1 userInfo={this.props.adInfo.owner}></UserInfoInquiry1>
                   </View>
               </View>
           </View>

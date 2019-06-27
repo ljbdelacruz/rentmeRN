@@ -7,9 +7,9 @@ import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 export class AdsList1 extends Component {
     constructor(prop){
         super(prop);
-        adsList=[{title:'Club House', price:'$40', description:'3 Bed Room All around for you this is the best place for people who are planning on starting a family', image:[]}, 
-          {title:'Jojos Crib', price:'$20', description:'3 Bed Room All around for you this is the best place for people who are planning on starting a family', images:[]},
-          {title:'Home Service Spa', price:'$20', description:'Massage Service with Sunspa treatment', images:[]}
+        adsList=[
+          {images:[], title:'Jojos Crib', desc:'3 Bed Room All around for you this is the best place for people who are planning on starting a family', price:'$40', priceSubtitle:'Per Night', owner:{title:'Detective Pikachu', subtitle:'Owner', profileImage:'', rightImage:''}},
+          {images:[], title:'Club House', desc:'3 Bed Room All around for you this is the best place for people who are planning on starting a family', price:'$40', priceSubtitle:'Per Night', owner:{title:'Squirtle Mash', subtitle:'Co-Host', profileImage:'', rightImage:''}}
         ]
     }
     render() {
@@ -18,7 +18,7 @@ export class AdsList1 extends Component {
              {adsList.map(ads => {
                     return (
                         <TouchableWithoutFeedback style={this.styles.adViews}>
-                           <AdsDisplay1 mytitle={ads.title} mydesc={ads.description} myprice={ads.price} mysubdesc='Per Night'></AdsDisplay1>
+                           <AdsDisplay1 adInfo={ads}></AdsDisplay1>
                         </TouchableWithoutFeedback>
                     );
               })}
