@@ -7,14 +7,9 @@ import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 export class AdsList1 extends Component {
     constructor(prop){
         super(prop);
-
         this.setState({
           adsList:[]
         })
-        // adsList=[
-        //   {images:[], title:'Jojos Crib', desc:'3 Bed Room All', price:'$40', priceSubtitle:'Per Night', owner:{title:'Detective Pikachu', subtitle:'Owner', profileImage:'', rightImage:''}},
-        //   {images:[], title:'Club House', desc:'3 Bed Room All around for you this is the best place for people who are planning on starting a family', price:'$40', priceSubtitle:'Per Night', owner:{title:'Squirtle Mash', subtitle:'Co-Host', profileImage:'', rightImage:''}}
-        // ]
     }
     render() {
       return (
