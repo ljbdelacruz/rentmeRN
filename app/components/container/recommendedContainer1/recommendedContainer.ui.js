@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, ScrollView, StyleSheet, Button, Text } from 'react-native';
+import { View, ScrollView, StyleSheet, Text, Alert, TouchableOpacity } from 'react-native';
 import {AdDisplay2} from '../ads/adsDisplay2/adsDisplay2.ui'
 
 export class RecommendedContainer1 extends Component {
@@ -18,9 +18,11 @@ export class RecommendedContainer1 extends Component {
                 <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={this.styles.scrollviewContainer}>
                     {adsList.map(ads => {
                         return (
-                            <View style={this.styles.adContainer}>
-                                <AdDisplay2 mytitle={ads.title} myprice={ads.price}></AdDisplay2>
-                            </View>
+                            <TouchableOpacity style={this.styles.adContainer} onPress={()=>{
+                                this.adsOnClick(ads);
+                            }}>
+                                <AdDisplay2 mytitle={ads.title} myprice={ads.price} ></AdDisplay2>
+                            </TouchableOpacity>
                         );
                     })}
                 </ScrollView>
@@ -48,5 +50,9 @@ export class RecommendedContainer1 extends Component {
 
 
     });
+    adsOnClick(ads){
+        Alert.alert(ads.title);
+    }
+
 
   }

@@ -24,11 +24,9 @@ class DashboardPage extends React.Component {
                   <View style={this.styles.mainContainer}>
                       <ScrollView showsVerticalScrollIndicator={false}>
                         <DashboardHeader1></DashboardHeader1>
-
                         <View style={this.styles.adsContainer}>
                           <AdsList1 adsList={this.ads}></AdsList1>
                         </View>
-
                         <RecommendedContainer1></RecommendedContainer1>
                         <ViewAdInfo1 isVisible={false}></ViewAdInfo1>
                       </ScrollView>

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, Alert } from 'react-native';
 import {SubCategoryContainer1} from '../../subcatcontainer/subcategoryContainer1.ui'
 import {DescriptionDetails} from '../../../container/descriptionDetails/descriptionDetails.ui'
 import {AdsInfoContainer1} from '../../../container/adInfoContainer/adInfoContainer1.ui'
+import {RentButton1} from '../../../buttons/rentButton1/rentButton1.ui'
 export class ClientManageAdsSub extends Component {
     constructor(prop){
         super(prop);
@@ -28,6 +29,13 @@ export class ClientManageAdsSub extends Component {
                 <Text>Facilities</Text>
                 <SubCategoryContainer1 categories={this.state.categories}></SubCategoryContainer1>
             </View>
+            <View style={this.styles.buttonContainer}>
+                <RentButton1 title='Rent Me' cancelImage='X' cancelOnClick={()=>{
+                    Alert.alert("Cancel OnClick");
+                }} leftOnClick={()=>{
+                    Alert.alert("Left OnClick");
+                }}></RentButton1>
+            </View>
         </View>
 
       );
@@ -38,13 +46,19 @@ export class ClientManageAdsSub extends Component {
             marginLeft: '2.5%',
         },
         titleContainer:{
-            height:80, 
-            width:'80%',
+            height:90, 
+            width:'90%',
             shadowOffset:{  width: 10,  height: 10,  },
             shadowColor: 'black',
             shadowOpacity: 1.0,           
-            marginLeft:'10%',
+            marginLeft:'5%',
             marginTop: 50,
+        },
+        buttonContainer:{
+            marginTop:40,
+            width:'90%',
+            height:50,
+            marginLeft:'5%'
         }
 
     });

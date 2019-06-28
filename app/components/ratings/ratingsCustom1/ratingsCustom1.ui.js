@@ -13,7 +13,9 @@ export class RatingsCustom1 extends Component {
                 <View style={this.styles.starReview}></View>
                 <View style={this.styles.starReview}></View>
                 <View style={this.styles.starReview}></View>
+                <View style={this.styles.starReview}></View>
                 <Text style={this.styles.reviewText}>{this.props.review} of {this.props.reviewer}</Text>
+                
               </View>
 
           </View>

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {StyleSheet, View, Text } from 'react-native';
 import {RatingsCustom1} from '../../ratings/ratingsCustom1/ratingsCustom1.ui'
-
 export class AdsInfoContainer1 extends Component {
     constructor(props){
         super(props)
@@ -35,6 +34,7 @@ export class AdsInfoContainer1 extends Component {
         },
         subcontainer:{
             flexDirection: 'row',
+            marginBottom: 20,
         },
         title:{
             fontSize:15,

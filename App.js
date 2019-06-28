@@ -9,8 +9,8 @@ const MainNavigator = createStackNavigator({
   // Login: {screen: LoginPage, navigationOptions: {header: null}, key: 'login'}, 
   Dashboard: {screen: DashboardPage, key:'dashboard', navigationOptions: {header: null}},
   // Settings: {screen: SettingsPage, key:'settings', navigationOptions: {header: null}},
-  // ManageAds: {screen: ManageAdsPage, key:'manageads', navigationOptions: {header: null}}
-  
+  // ManageAds: {screen: ManageAdsPage, key:'manageads', navigationOptions: {header: null}},
+
 });
 const App = createAppContainer(MainNavigator);
 export default App

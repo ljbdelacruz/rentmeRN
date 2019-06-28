@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {View, Image, Text, StyleSheet } from 'react-native';
+import {View, Image, Text, StyleSheet, TouchableOpacity } from 'react-native';
 export class AdDisplay2 extends Component {
     constructor(props){
         super(props)
@@ -7,12 +7,12 @@ export class AdDisplay2 extends Component {
     render() {
       return (
           <View style={this.styles.container}>
-              <View style={this.styles.upperContainer}></View>
-              <View style={this.styles.lowerContainer}>
-                <Text style={this.styles.titleAd}>{this.props.mytitle}</Text>
-                <Text style={this.styles.price}>{this.props.myprice}</Text>
-              </View>
-          </View>
+                <View style={this.styles.upperContainer}></View>
+                <View style={this.styles.lowerContainer}>
+                    <Text style={this.styles.titleAd}>{this.props.mytitle}</Text>
+                    <Text style={this.styles.price}>{this.props.myprice}</Text>
+                </View>
+          </View>          
       );
     }
     styles = StyleSheet.create({
@@ -25,6 +25,7 @@ export class AdDisplay2 extends Component {
             padding: 10,
             borderRadius: 10,
             width:'100%',
+            height:'100%',
             //shadow design
             shadowOffset:{  width: 1,  height: 1,  },
             shadowColor: 'gray',

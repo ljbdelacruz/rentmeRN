@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, ScrollView, Button, Text } from 'react-native';
+import { StyleSheet, View, ScrollView, Alert } from 'react-native';
 import {CustomButton1} from '../../buttons/customButton1/customButton1.ui'
 
 export class CategoryContainer1 extends Component {
@@ -16,7 +16,9 @@ export class CategoryContainer1 extends Component {
               {categories.map(category => {
                     return (
                         <View style={this.styles.buttons}>
-                            <CustomButton1 title={category.name} ></CustomButton1>
+                            <CustomButton1 title={category.name} onPress={()=>{
+                            this.processCategory(category)
+                        }}></CustomButton1>
                         </View>
                     );
               })}
@@ -42,5 +44,8 @@ export class CategoryContainer1 extends Component {
 
 
     });
+    processCategory(category){
+        Alert.alert(category.name);
+    }
 
   }

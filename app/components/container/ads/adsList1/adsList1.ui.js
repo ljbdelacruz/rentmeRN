@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { StyleSheet, Button, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Button, View, TouchableOpacity, Alert, TouchableWithoutFeedback } from 'react-native';
 import {AdsDisplay1} from '../adsDisplay1/adsDisplay1.ui'
 import {ViewAdInfo1} from '../../modals/viewAdInfo/viewAdInfo.modal'
-import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
 export class AdsList1 extends Component {
     constructor(prop){
@@ -16,9 +15,11 @@ export class AdsList1 extends Component {
         <View>
              {this.props.adsList.map(ads => {
                     return (
-                        <TouchableWithoutFeedback style={this.styles.adViews}>
+                        <TouchableOpacity style={this.styles.adViews} onPress={()=>{
+                          this.processAds(ads);
+                        }}>
                            <AdsDisplay1 adInfo={ads}></AdsDisplay1>
-                        </TouchableWithoutFeedback>
+                        </TouchableOpacity>
                     );
               })}
         </View>
@@ -33,5 +34,9 @@ export class AdsList1 extends Component {
             marginBottom:10
         },
     });
+    processAds(ads){
+      Alert.alert(ads.title);
+    }
+
 
   }

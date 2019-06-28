@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Platform, TextInput, StyleSheet, View, Image, Text } from 'react-native';
+import { Platform, StyleSheet, View, Text, TouchableNativeFeedback } from 'react-native';
 import {UserInfoInquiry1} from '../../userInfoInquiry1/userInfoInquiry.ui'
 export class AdsDisplay1 extends Component {
     constructor(props){
