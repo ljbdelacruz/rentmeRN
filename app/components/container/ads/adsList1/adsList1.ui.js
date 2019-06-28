@@ -18,7 +18,9 @@ export class AdsList1 extends Component {
                         <TouchableOpacity style={this.styles.adViews} onPress={()=>{
                           this.props.selectAds(ads);
                         }}>
-                           <AdsDisplay1 adInfo={ads}></AdsDisplay1>
+                           <AdsDisplay1 adInfo={ads} rightButtonOnClick={(userInfo)=>{
+                             this.props.rightButtonOnClick(userInfo);
+                           }}></AdsDisplay1>
                         </TouchableOpacity>
                     );
               })}
