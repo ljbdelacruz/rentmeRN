@@ -29,7 +29,9 @@ export class AdsDisplay1 extends Component {
                       </View>
                   </View>
                   <View>
-                    <UserInfoInquiry1 userInfo={this.props.adInfo.owner}></UserInfoInquiry1>
+                    <UserInfoInquiry1 userInfo={this.props.adInfo.owner} rightButtonOnClick={(userInfo)=>{
+                        this.props.rightButtonOnClick(userInfo);
+                    }}></UserInfoInquiry1>
                   </View>
               </View>
           </View>

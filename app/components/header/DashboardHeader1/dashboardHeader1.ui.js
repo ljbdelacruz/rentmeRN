@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Platform, TextInput, StyleSheet, View, Text, Button } from 'react-native';
 import {CustomTF1} from '../../textfields/customTF1/customTF1.ui'
 import {CategoryContainer1} from '../../container/categoryContainer1/categoryContainer1.ui'
+import {CustomButton1} from '../../buttons/customButton1/customButton1.ui'
 
 export class DashboardHeader1 extends Component {
     constructor(props){
@@ -14,8 +15,12 @@ export class DashboardHeader1 extends Component {
                     <View style={this.styles.headDashboard}>
                         <View style={this.styles.container1}>
                           <Text style={this.styles.menuLabel}>Rent Me App</Text>
+                          
+                          
                           <View style={this.styles.menuButton}>
-                              <Button title='Menu'></Button>
+                              <CustomButton1 title='Menu' onPress={()=>{
+                                this.props.rightButtonPressed();
+                              }}></CustomButton1>
                           </View>                 
                         </View>
                         <View style={this.styles.container2}>

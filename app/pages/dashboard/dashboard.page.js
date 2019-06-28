@@ -25,11 +25,17 @@ class DashboardPage extends React.Component {
                       <ScrollView showsVerticalScrollIndicator={false}>
                         <DashboardHeader1 categoryOnClick={(category)=>{
                           this.selectCategory(category);
+                        }} rightButtonPressed={()=>{
+                            this.selectMenu();
                         }}></DashboardHeader1>
                         <View style={this.styles.adsContainer}>
                           <AdsList1 adsList={this.ads} selectAds={(ads)=>{
                             this.selectAds(ads);
-                          }}></AdsList1>
+                          }}
+                          rightButtonOnClick={(userInfo)=>{
+                            Alert.alert(userInfo.title);
+                          }}
+                          ></AdsList1>
                         </View>
                         <RecommendedContainer1 onSelectAds={(ads)=>{
                           this.selectRecommendation(ads);
@@ -74,6 +80,9 @@ class DashboardPage extends React.Component {
     }
     selectRecommendation(ads){
         Alert.alert(ads.title);
+    }
+    selectMenu(){
+      Alert.alert("Menu Selected");
     }
 
 

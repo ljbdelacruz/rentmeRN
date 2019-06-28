@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {StyleSheet, View, Text } from 'react-native';
+import {StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import {RatingsCustom1} from '../../ratings/ratingsCustom1/ratingsCustom1.ui'
 
 export class UserInfoInquiry1 extends Component {
@@ -18,8 +18,10 @@ export class UserInfoInquiry1 extends Component {
                     <Text>{this.props.userInfo.title}</Text>
                     <Text>{this.props.userInfo.subtitle}</Text>
                 </View>
-                <View style={this.styles.subcontainer1}>
-                </View>
+                <TouchableOpacity style={this.styles.subcontainer1} onPress={()=>{
+                    this.props.rightButtonOnClick(this.props.userInfo);   
+                }}>
+                </TouchableOpacity>
               </View>
           </View>
 
