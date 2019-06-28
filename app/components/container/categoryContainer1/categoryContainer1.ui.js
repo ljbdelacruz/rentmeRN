@@ -7,7 +7,6 @@ export class CategoryContainer1 extends Component {
         super(props)
         categories=[{name:'Car', isSelected:false}, {name:'Housing', isSelected:false}, {name:'Services', isSelected:false},
         {name:'Equipments', isSelected:false}, {name:'Dorm', isSelected:false}]
-
     }
     render() {
       return (
@@ -17,8 +16,8 @@ export class CategoryContainer1 extends Component {
                     return (
                         <View style={this.styles.buttons}>
                             <CustomButton1 title={category.name} onPress={()=>{
-                            this.processCategory(category)
-                        }}></CustomButton1>
+                                this.props.categoryOnClick(category)
+                            }}></CustomButton1>
                         </View>
                     );
               })}
@@ -41,11 +40,5 @@ export class CategoryContainer1 extends Component {
             // width:100,
             height:50
         }
-
-
     });
-    processCategory(category){
-        Alert.alert(category.name);
-    }
-
   }

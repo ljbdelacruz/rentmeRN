@@ -16,7 +16,7 @@ export class AdsList1 extends Component {
              {this.props.adsList.map(ads => {
                     return (
                         <TouchableOpacity style={this.styles.adViews} onPress={()=>{
-                          this.processAds(ads);
+                          this.props.selectAds(ads);
                         }}>
                            <AdsDisplay1 adInfo={ads}></AdsDisplay1>
                         </TouchableOpacity>
@@ -34,9 +34,6 @@ export class AdsList1 extends Component {
             marginBottom:10
         },
     });
-    processAds(ads){
-      Alert.alert(ads.title);
-    }
 
 
   }

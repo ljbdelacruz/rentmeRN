@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, ScrollView } from 'react-native';
+import { View, StyleSheet, ScrollView, Alert } from 'react-native';
 import {DashboardHeader1} from '../../components/header/DashboardHeader1/dashboardHeader1.ui'
 import {RecommendedContainer1} from '../../components/container/recommendedContainer1/recommendedContainer.ui'
 import {AdsList1} from '../../components/container/ads/adsList1/adsList1.ui'
@@ -23,11 +23,17 @@ class DashboardPage extends React.Component {
           <View style={this.styles.container}>
                   <View style={this.styles.mainContainer}>
                       <ScrollView showsVerticalScrollIndicator={false}>
-                        <DashboardHeader1></DashboardHeader1>
+                        <DashboardHeader1 categoryOnClick={(category)=>{
+                          this.selectCategory(category);
+                        }}></DashboardHeader1>
                         <View style={this.styles.adsContainer}>
-                          <AdsList1 adsList={this.ads}></AdsList1>
+                          <AdsList1 adsList={this.ads} selectAds={(ads)=>{
+                            this.selectAds(ads);
+                          }}></AdsList1>
                         </View>
-                        <RecommendedContainer1></RecommendedContainer1>
+                        <RecommendedContainer1 onSelectAds={(ads)=>{
+                          this.selectRecommendation(ads);
+                        }}></RecommendedContainer1>
                         <ViewAdInfo1 isVisible={false}></ViewAdInfo1>
                       </ScrollView>
                   </View>
@@ -60,6 +66,17 @@ class DashboardPage extends React.Component {
 
 
     });
+    selectCategory(category){
+      Alert.alert(category.name)
+    }
+    selectAds(ads){
+      Alert.alert(ads.title);
+    }
+    selectRecommendation(ads){
+        Alert.alert(ads.title);
+    }
+
+
   }
-  export default DashboardPage;
+export default DashboardPage;
 

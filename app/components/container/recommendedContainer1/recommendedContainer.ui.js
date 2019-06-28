@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, ScrollView, StyleSheet, Text, Alert, TouchableOpacity } from 'react-native';
+import { View, ScrollView, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import {AdDisplay2} from '../ads/adsDisplay2/adsDisplay2.ui'
 
 export class RecommendedContainer1 extends Component {
@@ -28,6 +28,7 @@ export class RecommendedContainer1 extends Component {
                 </ScrollView>
               </View>
           </View>
+
       );
     }
     styles = StyleSheet.create({
@@ -51,7 +52,7 @@ export class RecommendedContainer1 extends Component {
 
     });
     adsOnClick(ads){
-        Alert.alert(ads.title);
+        this.props.onSelectAds(ads);
     }
 
 
