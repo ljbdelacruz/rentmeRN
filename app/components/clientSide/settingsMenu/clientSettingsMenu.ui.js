@@ -9,14 +9,17 @@ export class ClientSettingsMenu extends Component {
     render(){
       return (
             <View style={this.styles.content}>
-                <TouchableOpacity onPress={()=>{Alert.alert("Account Pressed!", "Pressing");}}>
+                <TouchableOpacity onPress={()=>{this.props.optionSelected(5)}}>
                     <CustomButton2 mytitle='Account Settings' ></CustomButton2>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={()=>{Alert.alert("Language Settings", "Pressing Login");}}>
+                <TouchableOpacity onPress={()=>{this.props.optionSelected(4)}}>
                     <CustomButton2 mytitle='Language' ></CustomButton2>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={()=>{Alert.alert("Switch to Host", "Pressing");}}>
+                <TouchableOpacity onPress={()=>{this.props.optionSelected(3)}}>
                     <CustomButton2 mytitle='Switch to Host' ></CustomButton2>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={()=>{this.props.optionSelected(1)}}>
+                    <CustomButton2 mytitle='Logout' ></CustomButton2>
                 </TouchableOpacity>
             </View>
       );
@@ -27,5 +30,7 @@ export class ClientSettingsMenu extends Component {
             width:'100%',
         },
     });
+
+
 
   }

@@ -46,7 +46,7 @@ export class AdsDisplay1 extends Component {
             borderRadius: 10,
             width:'100%',
             //shadow design
-            shadowOffset:{  width: 1,  height: 1,  },
+            shadowOffset:{  width: 10,  height: 10,  },
             shadowColor: 'gray',
             shadowOpacity: 1.0,
         },

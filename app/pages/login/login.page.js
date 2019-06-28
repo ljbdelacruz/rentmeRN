@@ -43,7 +43,6 @@ class LoginPage extends React.Component {
     }
     loginPressed(){
         const {navigate} = this.props.navigation;
-        console.log("Login Pressed")
         navigate('Dashboard')
     }
 

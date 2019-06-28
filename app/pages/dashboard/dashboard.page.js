@@ -13,7 +13,8 @@ class DashboardPage extends React.Component {
       super(props)
       this.ads=[
         {images:[], title:'Jojos Crib', desc:'3 Bed Room All', price:'$40', priceSubtitle:'Per Night', owner:{title:'Detective Pikachu', subtitle:'Owner', profileImage:'', rightImage:''}},
-        {images:[], title:'Club House', desc:'3 Bed Room All around for you this is the best place for people who are planning on starting a family', price:'$40', priceSubtitle:'Per Night', owner:{title:'Squirtle Mash', subtitle:'Co-Host', profileImage:'', rightImage:''}}
+        {images:[], title:'Club House', desc:'3 Bed Room All around for you this is the best place for people who are planning on starting a family', price:'$40', priceSubtitle:'Per Night', owner:{title:'Squirtle Mash', subtitle:'Co-Host', profileImage:'', rightImage:''}},
+        {images:[], title:'Sports Club ', desc:'Perfect for hosting your birthday parties and social events Perfect for hosting your birthday parties and social events Perfect for hosting your birthday parties and social events Perfect for hosting your birthday parties and social events Perfect for hosting your birthday parties and social events', price:'$400', priceSubtitle:'Per Night', owner:{title:'Squirtle Mash', subtitle:'Co-Host', profileImage:'', rightImage:''}}
       ]
     }
 
@@ -33,7 +34,7 @@ class DashboardPage extends React.Component {
                             this.selectAds(ads);
                           }}
                           rightButtonOnClick={(userInfo)=>{
-                            Alert.alert(userInfo.title);
+                            this.sendUserAMessage(userInfo);
                           }}
                           ></AdsList1>
                         </View>
@@ -82,7 +83,11 @@ class DashboardPage extends React.Component {
         Alert.alert(ads.title);
     }
     selectMenu(){
-      Alert.alert("Menu Selected");
+      const {navigate} = this.props.navigation;
+      navigate('Settings');
+    }
+    sendUserAMessage(userInfo){
+      Alert.alert(userInfo.title);
     }
 
 
