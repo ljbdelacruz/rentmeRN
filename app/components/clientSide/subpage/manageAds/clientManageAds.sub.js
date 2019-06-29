@@ -14,7 +14,8 @@ export class ClientManageAdsSub extends Component {
             // description:{title:'Descriptions', desc:'3 Bed Room All around for you this is the best place for people who are planning on starting a family.'},
             // owner:{title:'Jojos Clubhouse', review:3, reviewer:120}
         }
-
+        this.count=0;
+        this.limit=9;
     }
 
     render() {
@@ -39,7 +40,10 @@ export class ClientManageAdsSub extends Component {
                 }}></RentButton1>
             </View>
             <View style={this.styles.incrementer}>
-                <IncrementerButton1></IncrementerButton1>
+                <IncrementerButton1 count={this.count} limit={this.limit} addEvent={(count)=>{
+                }} subEvent={(count)=>{
+                    
+                }}></IncrementerButton1>
             </View>
         </View>
 
@@ -70,7 +74,8 @@ export class ClientManageAdsSub extends Component {
             height:100
         },
         incrementer:{
-            width:100
+            width:100,
+            backgroundColor:'blue'
         }
 
 

@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Alert, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Image, TouchableOpacity, Text, Alert } from 'react-native';
 export class IncrementerButton1 extends Component {
     constructor(props){
         super(props);
+        this.setState({
+            count:0,
+            limit:10,
+        })
     }
     render() {
       return (
@@ -10,15 +14,22 @@ export class IncrementerButton1 extends Component {
               <View style={this.styles.container}>
                   <TouchableOpacity style={this.styles.item1} onPress={()=>{
                       if(this.props.subEvent != null){
-                        this.props.subEvent();
+                        if(parseInt(this.props.count) <= 0){
+                            this.props.count=''+parseInt(this.props.count, 10) - 1;                        
+                        }
+                        this.props.subEvent(this.props.count);
                       }
-
                   }}>
                     <Image source={require('./img/minus.png')} style={this.styles.imageSize}></Image>              
                   </TouchableOpacity>          
+                  <Text>{this.props.count}</Text>
                   <TouchableOpacity style={this.styles.item2} onPress={()=>{
                     if(this.props.addEvent != null){
-                        this.props.addEvent();                      
+                        Alert.alert(this.props.count);
+                        if(parseInt(this.props.count) < parseInt(this.props.limit)){
+                            this.props.count=parseInt(this.props.count + 1) ;                        
+                        }
+                        this.props.addEvent(this.props.count);                      
                     }
                   }}>
                     <Image source={require('./img/add.png')} style={this.styles.imageSize}></Image>              

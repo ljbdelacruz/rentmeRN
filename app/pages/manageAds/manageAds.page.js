@@ -30,10 +30,7 @@ class ManageAdsPage extends React.Component {
             Alert.alert("Renting this item "+ad.title);
           }} rightOnClick={()=>{
             this.navigateOption(1);
-          }}></ClientManageAdsSub>
-
-
-          
+          }}></ClientManageAdsSub>          
         </View>
       );
     }
