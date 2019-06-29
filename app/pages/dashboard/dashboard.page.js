@@ -16,6 +16,7 @@ class DashboardPage extends React.Component {
         {images:[], title:'Club House', desc:'3 Bed Room All around for you this is the best place for people who are planning on starting a family', price:'$40', priceSubtitle:'Per Night', owner:{title:'Squirtle Mash', subtitle:'Co-Host', profileImage:'', rightImage:''}},
         {images:[], title:'Sports Club ', desc:'Perfect for hosting your birthday parties and social events Perfect for hosting your birthday parties and social events Perfect for hosting your birthday parties and social events Perfect for hosting your birthday parties and social events Perfect for hosting your birthday parties and social events', price:'$400', priceSubtitle:'Per Night', owner:{title:'Squirtle Mash', subtitle:'Co-Host', profileImage:'', rightImage:''}}
       ]
+      
     }
 
     render() {
@@ -77,17 +78,27 @@ class DashboardPage extends React.Component {
       Alert.alert(category.name)
     }
     selectAds(ads){
-      Alert.alert(ads.title);
+      this.navigatePages(2, {ads:ads});
     }
     selectRecommendation(ads){
         Alert.alert(ads.title);
     }
     selectMenu(){
-      const {navigate} = this.props.navigation;
-      navigate('Settings');
+      this.navigatePages(1, {});
     }
     sendUserAMessage(userInfo){
       Alert.alert(userInfo.title);
+    }
+    navigatePages(option, param){
+      const {navigate} = this.props.navigation;
+      switch(option){
+        case 1:
+          navigate('Settings');
+          break;
+        case 2:
+            navigate('ManageAds', param)
+          break;
+      }
     }
 
 

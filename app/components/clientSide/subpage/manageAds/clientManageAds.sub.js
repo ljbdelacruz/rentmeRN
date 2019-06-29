@@ -4,26 +4,28 @@ import {SubCategoryContainer1} from '../../subcatcontainer/subcategoryContainer1
 import {DescriptionDetails} from '../../../container/descriptionDetails/descriptionDetails.ui'
 import {AdsInfoContainer1} from '../../../container/adInfoContainer/adInfoContainer1.ui'
 import {RentButton1} from '../../../buttons/rentButton1/rentButton1.ui'
+import {IncrementerButton1} from '../../../buttons/incrementerButton1/incrementerButton1.ui'
 export class ClientManageAdsSub extends Component {
     constructor(prop){
         super(prop);
         //data from parent sent to the child for display
         this.state={
             categories:[{title:'Rooms', count:'1'}, {title:'Bathroom', count:2}, {title:'Pool', count:1}, {title:'Gym', count:1}],
-            description:{title:'Descriptions', desc:'3 Bed Room All around for you this is the best place for people who are planning on starting a family.'},
-            ad:{title:'Jojos Clubhouse', review:3, reviewer:120}
+            // description:{title:'Descriptions', desc:'3 Bed Room All around for you this is the best place for people who are planning on starting a family.'},
+            // owner:{title:'Jojos Clubhouse', review:3, reviewer:120}
         }
+
     }
 
     render() {
       return (
         <View>
             <View style={this.styles.titleContainer}>
-                <AdsInfoContainer1 ad={this.state.ad}></AdsInfoContainer1>
+                <AdsInfoContainer1 ad={this.props.ad}></AdsInfoContainer1>
             </View>
             
             <View style={this.styles.descContainer}>
-                <DescriptionDetails description={this.state.description}></DescriptionDetails>
+                <DescriptionDetails description={{title:'Description', desc: this.props.ad.desc}}></DescriptionDetails>
             </View>
             <View style={this.styles.descContainer}>
                 <Text>Facilities</Text>
@@ -35,6 +37,9 @@ export class ClientManageAdsSub extends Component {
                 }} leftOnClick={()=>{
                     Alert.alert("Left OnClick");
                 }}></RentButton1>
+            </View>
+            <View>
+                <IncrementerButton1></IncrementerButton1>
             </View>
         </View>
 
@@ -59,6 +64,10 @@ export class ClientManageAdsSub extends Component {
             width:'90%',
             height:50,
             marginLeft:'5%'
+        },
+        buttoninc:{
+            width:'100%',
+            height:100
         }
 
     });
