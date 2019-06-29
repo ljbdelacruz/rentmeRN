@@ -26,10 +26,14 @@ class ManageAdsPage extends React.Component {
     render() {
       return (
         <View>
-          <Button title='Back' onPress={()=>{
+          <ClientManageAdsSub ad={this.data.description} leftOnClick={(ad)=>{
+            Alert.alert("Renting this item "+ad.title);
+          }} rightOnClick={()=>{
             this.navigateOption(1);
-          }}></Button>
-          <ClientManageAdsSub ad={this.data.description}></ClientManageAdsSub>
+          }}></ClientManageAdsSub>
+
+
+          
         </View>
       );
     }

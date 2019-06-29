@@ -33,12 +33,12 @@ export class ClientManageAdsSub extends Component {
             </View>
             <View style={this.styles.buttonContainer}>
                 <RentButton1 title='Rent Me' cancelImage='X' cancelOnClick={()=>{
-                    Alert.alert("Cancel OnClick");
+                    this.props.rightOnClick();
                 }} leftOnClick={()=>{
-                    Alert.alert("Left OnClick");
+                    this.props.leftOnClick(this.props.ad);
                 }}></RentButton1>
             </View>
-            <View>
+            <View style={this.styles.incrementer}>
                 <IncrementerButton1></IncrementerButton1>
             </View>
         </View>
@@ -68,7 +68,11 @@ export class ClientManageAdsSub extends Component {
         buttoninc:{
             width:'100%',
             height:100
+        },
+        incrementer:{
+            width:100
         }
+
 
     });
 
