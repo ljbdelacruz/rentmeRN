@@ -3,8 +3,7 @@ import { View, StyleSheet, ScrollView, Alert } from 'react-native';
 import {DashboardHeader1} from '../../components/header/DashboardHeader1/dashboardHeader1.ui'
 import {RecommendedContainer1} from '../../components/container/recommendedContainer1/recommendedContainer.ui'
 import {AdsList1} from '../../components/container/ads/adsList1/adsList1.ui'
-import {ViewAdInfo1} from '../../components/container/modals/viewAdInfo/viewAdInfo.modal'
-
+import {ClientDashboardSubPage} from '../../components/clientSide/subpage/dashboard/clientDashboard.sub'
 class DashboardPage extends React.Component {
     static navigationOptions = {
       title: 'Dashboard',
@@ -23,28 +22,17 @@ class DashboardPage extends React.Component {
         const {navigate} = this.props.navigation;
         return (
           <View style={this.styles.container}>
-                  <View style={this.styles.mainContainer}>
-                      <ScrollView showsVerticalScrollIndicator={false}>
-                        <DashboardHeader1 categoryOnClick={(category)=>{
-                          this.selectCategory(category);
-                        }} rightButtonPressed={()=>{
-                            this.selectMenu();
-                        }}></DashboardHeader1>
-                        <View style={this.styles.adsContainer}>
-                          <AdsList1 adsList={this.ads} selectAds={(ads)=>{
-                            this.selectAds(ads);
-                          }}
-                          rightButtonOnClick={(userInfo)=>{
-                            this.sendUserAMessage(userInfo);
-                          }}
-                          ></AdsList1>
-                        </View>
-                        <RecommendedContainer1 onSelectAds={(ads)=>{
-                          this.selectRecommendation(ads);
-                        }}></RecommendedContainer1>
-                        <ViewAdInfo1 isVisible={false}></ViewAdInfo1>
-                      </ScrollView>
-                  </View>
+            <ClientDashboardSubPage ads={this.ads} categoryOnClick={(category)=>{
+              this.selectCategory(category);
+            }} rightButtonPressed={()=>{
+              this.selectMenu();
+            }} selectAds={(ads)=>{
+              this.selectAds(ads);
+            }} rightButtonOnClick={(userInfo)=>{
+              this.sendUserAMessage(userInfo);
+            }} onSelectAds={(ads)=>{
+              this.selectRecommendation(ads);
+            }}></ClientDashboardSubPage>
           </View>
         );
     }
@@ -53,24 +41,7 @@ class DashboardPage extends React.Component {
             backgroundColor: '#a1abce',
             width:'100%',
             height:'100%',
-            position:'absolute',
-            top:0,
-            zIndex:1
         },
-        scrollview:{
-          width:'100%',
-        },
-        mainContainer:{
-          flex:1,
-          width:'100%',
-          zIndex:1,
-        },
-        adsContainer:{
-          width:'95%',
-          left:'2.5%',
-          marginTop:-60,
-          zIndex:2
-        }
 
 
     });

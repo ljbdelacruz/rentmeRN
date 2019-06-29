@@ -42,7 +42,6 @@ export class ClientManageAdsSub extends Component {
             <View style={this.styles.incrementer}>
                 <IncrementerButton1 count={this.count} limit={this.limit} addEvent={(count)=>{
                 }} subEvent={(count)=>{
-                    
                 }}></IncrementerButton1>
             </View>
         </View>
