@@ -1,0 +1,5 @@
+mock endpoints:
+
+http://www.mocky.io/v2/5d17ab002f00007e5a25fb4b
+for data in ads dashboard
+
