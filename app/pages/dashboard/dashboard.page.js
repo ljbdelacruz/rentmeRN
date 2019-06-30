@@ -82,7 +82,9 @@ class DashboardPage extends React.Component {
       }
     }
     fetchAds(){
-      Axios.get('')
+      Axios.get('/5d17ab002f00007e5a25fb4b', this.headers).then((data)=>{
+        Alert.alert(JSON.stringify(data));
+      })
     }
 
 
