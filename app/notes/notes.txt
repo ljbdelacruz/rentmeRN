@@ -10,7 +10,11 @@ for data in ads dashboard
 Dependencies UI:
 
 react-native-modalbox
+https://github.com/maxs15/react-native-modalbox
 
 Networking layer:
 
 axios
+
+
+please use flatlist for displaying list type content
