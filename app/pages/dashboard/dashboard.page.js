@@ -4,6 +4,7 @@ import {DashboardHeader1} from '../../components/header/DashboardHeader1/dashboa
 import {RecommendedContainer1} from '../../components/container/recommendedContainer1/recommendedContainer.ui'
 import {AdsList1} from '../../components/container/ads/adsList1/adsList1.ui'
 import {ClientDashboardSubPage} from '../../components/clientSide/subpage/dashboard/clientDashboard.sub'
+import Axios from 'axios';
 class DashboardPage extends React.Component {
     static navigationOptions = {
       title: 'Dashboard',
@@ -18,6 +19,11 @@ class DashboardPage extends React.Component {
           {images:[], title:'Sports Club ', desc:'Perfect for hosting your birthday parties and social events Perfect for hosting your birthday parties and social events Perfect for hosting your birthday parties and social events Perfect for hosting your birthday parties and social events Perfect for hosting your birthday parties and social events', price:'$400', priceSubtitle:'Per Night', owner:{title:'Squirtle Mash', subtitle:'Co-Host', profileImage:'', rightImage:''}}
         ] 
       }, 3000);
+      var instance = Axios.create({
+        baseURL: 'http://www.mocky.io/v2',
+        timeout: 1000,
+        headers: {}
+      });
 
       
     }
@@ -75,8 +81,8 @@ class DashboardPage extends React.Component {
           break;
       }
     }
-    fetchData(){
-            
+    fetchAds(){
+      Axios.get('')
     }
 
 
