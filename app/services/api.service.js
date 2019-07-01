@@ -10,3 +10,4 @@ async function getAds(){
         console.error("Error ");        
     }
 }
+export {getAds}; 
