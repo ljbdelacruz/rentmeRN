@@ -5,25 +5,13 @@ import {RecommendedContainer1} from '../../components/container/recommendedConta
 import {AdsList1} from '../../components/container/ads/adsList1/adsList1.ui'
 import {ClientDashboardSubPage} from '../../components/clientSide/subpage/dashboard/clientDashboard.sub'
 import {getAds} from '../../services/api.service'
-
-
-
 class DashboardPage extends React.Component {
     static navigationOptions = {
       title: 'Dashboard',
     };
     constructor(props){
       super(props)
-
-
       this.ads=[]
-      // this.setTimeout(() => {
-      //   this.ads=[
-      //     {images:[], title:'Jojos Crib', desc:'3 Bed Room All', price:'$40', priceSubtitle:'Per Night', owner:{title:'Detective Pikachu', subtitle:'Owner', profileImage:'', rightImage:''}},
-      //     {images:[], title:'Club House', desc:'3 Bed Room All around for you this is the best place for people who are planning on starting a family', price:'$40', priceSubtitle:'Per Night', owner:{title:'Squirtle Mash', subtitle:'Co-Host', profileImage:'', rightImage:''}},
-      //     {images:[], title:'Sports Club ', desc:'Perfect for hosting your birthday parties and social events Perfect for hosting your birthday parties and social events Perfect for hosting your birthday parties and social events Perfect for hosting your birthday parties and social events Perfect for hosting your birthday parties and social events', price:'$400', priceSubtitle:'Per Night', owner:{title:'Squirtle Mash', subtitle:'Co-Host', profileImage:'', rightImage:''}}
-      //   ] 
-      // }, 3000);
       this.fetchAds();
     }
     componentDidMount(){
@@ -33,7 +21,7 @@ class DashboardPage extends React.Component {
         console.log("test");
         return (
           <View style={this.styles.container}>
-            <ClientDashboardSubPage ref='child' ads={this.ads} categoryOnClick={(category)=>{
+            <ClientDashboardSubPage ads={this.ads} categoryOnClick={(category)=>{
               this.selectCategory(category);
             }} rightButtonPressed={()=>{
               this.selectMenu();
@@ -91,10 +79,6 @@ class DashboardPage extends React.Component {
       // }).catch(function (error) {
       //   Alert.alert("Error", JSON.stringify(error))
       // });
-    }
-    handleAdsChange(event) {
-      const text = event.target.value;
-      this.props.onChange(this.props.id, text);
     }
   }
 export default DashboardPage;

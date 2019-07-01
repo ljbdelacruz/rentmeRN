@@ -15,8 +15,9 @@ export class ClientDashboardSubPage extends Component {
     updateAds(){
       getAds(this.ads)
       .then(function(response) {
-        this.setState({ads:response.data});
-        Alert.alert(JSON.stringify(response.data));
+        // this.setState({ads:response.data});
+        Alert.alert("Success",JSON.stringify(response.data));
+
       }).catch(function (error) {
         Alert.alert("Error", JSON.stringify(error))
       });
