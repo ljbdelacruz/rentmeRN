@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, ScrollView } from 'react-native';
+import { StyleSheet, View, ScrollView, Button, Alert } from 'react-native';
 import {DashboardHeader1} from '../../../header/DashboardHeader1/dashboardHeader1.ui'
 import {RecommendedContainer1} from '../../../container/recommendedContainer1/recommendedContainer.ui'
 import {AdsList1} from '../../../container/ads/adsList1/adsList1.ui'
@@ -8,12 +8,20 @@ export class ClientDashboardSubPage extends Component {
     constructor(prop){
         super(prop);
     }
-
+    updateAds(ads){
+      this.props.ads=ads;
+    }
     render() {
+      this.dest=this.props.ads;
       return (
             <View style={this.styles.container}>
                   <View style={this.styles.mainContainer}>
                       <ScrollView showsVerticalScrollIndicator={false}>
+                        <Button title='TEST' onPress={()=>{
+                          Alert.alert(JSON.stringify(this.props.ads));
+                        }}></Button>
+
+
                         <DashboardHeader1 categoryOnClick={(category)=>{
                           this.props.categoryOnClick(category);
                         }} rightButtonPressed={()=>{

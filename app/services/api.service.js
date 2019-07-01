@@ -1,13 +1,12 @@
 
+import * as axios from 'axios';
+axios.defaults.baseURL = 'http://192.168.88.23:8080/';
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+axios.defaults.headers.get['Content-Type'] = 'application/x-www-form-urlencoded';
 
-const baseURL="http://www.mocky.io/v2/";
-async function getAds(){
-    try{
-        let response = await fetch(baseURL+"5d17ab002f00007e5a25fb4b");
-        let responseJSON=response.json();
-        return responseJSON.data;
-    }catch(error){
-        console.error("Error ");        
-    }
+
+
+async function getAds(ads){
+    return axios.get('/getAds')
 }
 export {getAds}; 
