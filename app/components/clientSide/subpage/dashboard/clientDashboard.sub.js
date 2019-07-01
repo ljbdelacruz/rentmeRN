@@ -3,14 +3,26 @@ import { StyleSheet, View, ScrollView, Button, Alert } from 'react-native';
 import {DashboardHeader1} from '../../../header/DashboardHeader1/dashboardHeader1.ui'
 import {RecommendedContainer1} from '../../../container/recommendedContainer1/recommendedContainer.ui'
 import {AdsList1} from '../../../container/ads/adsList1/adsList1.ui'
-
+import {getAds} from '../../../../services/api.service'
 export class ClientDashboardSubPage extends Component {
     constructor(prop){
         super(prop);
+        this.state={
+          ads:[]
+        }
+        this.updateAds();
     }
-    updateAds(ads){
-      this.props.ads=ads;
+    updateAds(){
+      getAds(this.ads)
+      .then(function(response) {
+        this.setState({ads:response.data});
+        Alert.alert(JSON.stringify(response.data));
+      }).catch(function (error) {
+        Alert.alert("Error", JSON.stringify(error))
+      });
     }
+
+
     render() {
       this.dest=this.props.ads;
       return (
@@ -18,7 +30,7 @@ export class ClientDashboardSubPage extends Component {
                   <View style={this.styles.mainContainer}>
                       <ScrollView showsVerticalScrollIndicator={false}>
                         <Button title='TEST' onPress={()=>{
-                          Alert.alert(JSON.stringify(this.props.ads));
+                          Alert.alert(JSON.stringify(this.state.ads));
                         }}></Button>
 
 
@@ -28,7 +40,7 @@ export class ClientDashboardSubPage extends Component {
                             this.props.rightButtonPressed();
                         }}></DashboardHeader1>
                         <View style={this.styles.adsContainer}>
-                          <AdsList1 adsList={this.props.ads} selectAds={(ads)=>{
+                          <AdsList1 adsList={this.state.ads} selectAds={(ads)=>{
                             this.props.selectAds(ads);
                           }}
                           rightButtonOnClick={(userInfo)=>{

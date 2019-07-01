@@ -78,28 +78,24 @@ class DashboardPage extends React.Component {
           navigate('Settings');
           break;
         case 2:
-            navigate('ManageAds', param)
+          navigate('ManageAds', param)
           break;
       }
     }
     fetchAds(){
-      getAds(this.ads)
-      .then(function (response) {
-        this.ads=response.data;
-        Alert.alert("Success", JSON.stringify(response.data));
-        this.refs.child.updateAds(response.data);
-      }).catch(function (error) {
-        Alert.alert("Error", JSON.stringify(error))
-      });
+      // getAds(this.ads)
+      // .then(function(response) {
+      //   this.ads=response.data;
+      //   Alert.alert("Success", JSON.stringify(response.data));
+      //   this.refs.child.updateAds(response.data);
+      // }).catch(function (error) {
+      //   Alert.alert("Error", JSON.stringify(error))
+      // });
     }
-
-
     handleAdsChange(event) {
       const text = event.target.value;
       this.props.onChange(this.props.id, text);
     }
-
-
   }
 export default DashboardPage;
 
