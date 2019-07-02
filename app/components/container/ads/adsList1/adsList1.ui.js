@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
 import { StyleSheet, Button, View, TouchableOpacity, Alert, TouchableWithoutFeedback } from 'react-native';
 import {AdsDisplay1} from '../adsDisplay1/adsDisplay1.ui'
-import {ViewAdInfo1} from '../../modals/viewAdInfo/viewAdInfo.modal'
 
 export class AdsList1 extends Component {
     constructor(prop){
         super(prop);
+        // this.state={
+        //   adsList:[]
+        // }
         this.setState({
           adsList:[]
         })
     }
+    // updateComponent(data){
+    //   Alert.alert(data);
+    //   this.setState({adsList:data})
+    // }
     render() {
       return (
         <View>

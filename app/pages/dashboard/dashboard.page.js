@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, ScrollView, Alert } from 'react-native';
+import { View, StyleSheet, ScrollView, Alert, TouchableOpacity } from 'react-native';
 import {DashboardHeader1} from '../../components/header/DashboardHeader1/dashboardHeader1.ui'
 import {RecommendedContainer1} from '../../components/container/recommendedContainer1/recommendedContainer.ui'
 import {AdsList1} from '../../components/container/ads/adsList1/adsList1.ui'
 import {ClientDashboardSubPage} from '../../components/clientSide/subpage/dashboard/clientDashboard.sub'
-import {getAds} from '../../services/api.service'
-
+import {TestComp} from '../../components/buttons/testcomp/testcom.ui'
 
 
 class DashboardPage extends React.Component {
@@ -14,8 +13,10 @@ class DashboardPage extends React.Component {
     };
     constructor(props){
       super(props)
-
-
+      this.state={
+        label:'test',
+        label1:'test1',
+      }
       this.ads=[]
       // this.setTimeout(() => {
       //   this.ads=[
@@ -28,12 +29,12 @@ class DashboardPage extends React.Component {
     }
     componentDidMount(){
     }
-    render() {
+
+    render() {        
         const {navigate} = this.props.navigation;
-        console.log("test");
         return (
           <View style={this.styles.container}>
-            <ClientDashboardSubPage ref='child' ads={this.ads} categoryOnClick={(category)=>{
+            <ClientDashboardSubPage ads={this.ads} categoryOnClick={(category)=>{
               this.selectCategory(category);
             }} rightButtonPressed={()=>{
               this.selectMenu();

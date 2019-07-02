@@ -4,22 +4,41 @@ import {DashboardHeader1} from '../../../header/DashboardHeader1/dashboardHeader
 import {RecommendedContainer1} from '../../../container/recommendedContainer1/recommendedContainer.ui'
 import {AdsList1} from '../../../container/ads/adsList1/adsList1.ui'
 import {getAds} from '../../../../services/api.service'
+import * as axios from 'axios';
+
+
+
 export class ClientDashboardSubPage extends Component {
     constructor(prop){
         super(prop);
         this.state={
           ads:[]
         }
-        this.updateAds();
+    }
+
+    componentDidMount(){
+      this.updateAds();
+      // this.setAdsData([{images:[], title:'Jojos Crib', desc:'3 Bed Room All', price:'$40', priceSubtitle:'Per Night', owner:{title:'Detective Pikachu', subtitle:'Owner', profileImage:'', rightImage:''}}])
     }
     updateAds(){
-      getAds(this.ads)
-      .then(function(response) {
-        this.setState({ads:response.data});
-        Alert.alert(JSON.stringify(response.data));
-      }).catch(function (error) {
-        Alert.alert("Error", JSON.stringify(error))
-      });
+      var self=this;
+      getAds(function(data){
+        this.setAdsData(data);
+      }.bind(this), function(err){
+        Alert.alert(JSON.stringify(err))
+      }.bind(this))
+
+      // axios.get('/getAds')
+      // .then(function(response){
+      //   // this.setState({ads:response.data});
+      //   // AdsList1.updateComponent(this.state.ads);       
+      //   this.setAdsData(response.data)
+      // }).catch(function (error){
+      //   Alert.alert("Error", JSON.stringify(error))
+      // });
+    }
+    setAdsData(ads){
+      this.setState({ads:ads});
     }
 
 
@@ -29,11 +48,9 @@ export class ClientDashboardSubPage extends Component {
             <View style={this.styles.container}>
                   <View style={this.styles.mainContainer}>
                       <ScrollView showsVerticalScrollIndicator={false}>
-                        <Button title='TEST' onPress={()=>{
-                          Alert.alert(JSON.stringify(this.state.ads));
+                        <Button title='Test' onPress={()=>{
+                          this.setAdsData([{images:[], title:'Jojos Crib', desc:'3 Bed Room All', price:'$40', priceSubtitle:'Per Night', owner:{title:'Detective Pikachu', subtitle:'Owner', profileImage:'', rightImage:''}}])
                         }}></Button>
-
-
                         <DashboardHeader1 categoryOnClick={(category)=>{
                           this.props.categoryOnClick(category);
                         }} rightButtonPressed={()=>{

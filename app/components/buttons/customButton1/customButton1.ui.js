@@ -4,7 +4,6 @@ export class CustomButton1 extends Component {
     constructor(prop){
         super(prop);
     }
-
     render() {
       return (
         <View style={this.styles.b1container}>

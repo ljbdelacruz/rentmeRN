@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, View, Text, TouchableNativeFeedback } from 'react-native';
+import { Platform, StyleSheet, View, Text } from 'react-native';
+
 import {UserInfoInquiry1} from '../../userInfoInquiry1/userInfoInquiry.ui'
 export class AdsDisplay1 extends Component {
     constructor(props){
         super(props)
+        // this.state={
+        //     adInfo:{images:[], title:'', desc:'', price:'', priceSubtitle:'', owner:{title:'', subtitle:'', profileImage:'', rightImage:''}}
+        // }
         this.setState({
             adInfo:{images:[], title:'', desc:'', price:'', priceSubtitle:'', owner:{title:'', subtitle:'', profileImage:'', rightImage:''}}
         })
     }
+    // updateComponent(data){
+    //     this.setState({adInfo:data});
+    // }
+
     render() {
       return (
           <View style={this.styles.container}>
