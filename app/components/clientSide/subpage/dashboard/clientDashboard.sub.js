@@ -3,61 +3,30 @@ import { StyleSheet, View, ScrollView, Button, Alert } from 'react-native';
 import {DashboardHeader1} from '../../../header/DashboardHeader1/dashboardHeader1.ui'
 import {RecommendedContainer1} from '../../../container/recommendedContainer1/recommendedContainer.ui'
 import {AdsList1} from '../../../container/ads/adsList1/adsList1.ui'
-import {getAds} from '../../../../services/api.service'
-import * as axios from 'axios';
-
-
+import {getAds, getCategory} from '../../../../services/api.service'
 
 export class ClientDashboardSubPage extends Component {
     constructor(prop){
         super(prop);
         this.state={
-          ads:[]
+          ads:[],
+          category:[],
+          recommendedAds:[]
         }
     }
-
-    componentDidMount(){
-      this.updateAds();
-      // this.setAdsData([{images:[], title:'Jojos Crib', desc:'3 Bed Room All', price:'$40', priceSubtitle:'Per Night', owner:{title:'Detective Pikachu', subtitle:'Owner', profileImage:'', rightImage:''}}])
-    }
-    updateAds(){
-      var self=this;
-      getAds(function(data){
-        this.setAdsData(data);
-      }.bind(this), function(err){
-        Alert.alert(JSON.stringify(err))
-      }.bind(this))
-
-      // axios.get('/getAds')
-      // .then(function(response){
-      //   // this.setState({ads:response.data});
-      //   // AdsList1.updateComponent(this.state.ads);       
-      //   this.setAdsData(response.data)
-      // }).catch(function (error){
-      //   Alert.alert("Error", JSON.stringify(error))
-      // });
-    }
-    setAdsData(ads){
-      this.setState({ads:ads});
-    }
-
-
     render() {
       this.dest=this.props.ads;
       return (
             <View style={this.styles.container}>
                   <View style={this.styles.mainContainer}>
                       <ScrollView showsVerticalScrollIndicator={false}>
-                        <Button title='Test' onPress={()=>{
-                          this.setAdsData([{images:[], title:'Jojos Crib', desc:'3 Bed Room All', price:'$40', priceSubtitle:'Per Night', owner:{title:'Detective Pikachu', subtitle:'Owner', profileImage:'', rightImage:''}}])
-                        }}></Button>
-                        <DashboardHeader1 categoryOnClick={(category)=>{
+                        <DashboardHeader1 categories={this.props.category} categoryOnClick={(category)=>{
                           this.props.categoryOnClick(category);
                         }} rightButtonPressed={()=>{
                             this.props.rightButtonPressed();
                         }}></DashboardHeader1>
                         <View style={this.styles.adsContainer}>
-                          <AdsList1 adsList={this.state.ads} selectAds={(ads)=>{
+                          <AdsList1 adsList={this.props.ads} selectAds={(ads)=>{
                             this.props.selectAds(ads);
                           }}
                           rightButtonOnClick={(userInfo)=>{

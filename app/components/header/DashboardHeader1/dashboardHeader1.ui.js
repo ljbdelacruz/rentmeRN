@@ -27,7 +27,7 @@ export class DashboardHeader1 extends Component {
                           <View style={this.styles.searchboxContainer}>
                             <CustomTF1 placeholder="What Are you looking for?"></CustomTF1>
                           </View>
-                          <CategoryContainer1 categoryOnClick={(category)=>{
+                          <CategoryContainer1 categories={this.props.categories} categoryOnClick={(category)=>{
                             this.props.categoryOnClick(category);
                           }}></CategoryContainer1>                      
                         </View>

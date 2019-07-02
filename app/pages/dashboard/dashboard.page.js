@@ -4,8 +4,7 @@ import {DashboardHeader1} from '../../components/header/DashboardHeader1/dashboa
 import {RecommendedContainer1} from '../../components/container/recommendedContainer1/recommendedContainer.ui'
 import {AdsList1} from '../../components/container/ads/adsList1/adsList1.ui'
 import {ClientDashboardSubPage} from '../../components/clientSide/subpage/dashboard/clientDashboard.sub'
-import {TestComp} from '../../components/buttons/testcomp/testcom.ui'
-
+import {getAds, getCategory, getRecommendedAds} from '../../services/api.service'
 
 class DashboardPage extends React.Component {
     static navigationOptions = {
@@ -14,27 +13,22 @@ class DashboardPage extends React.Component {
     constructor(props){
       super(props)
       this.state={
-        label:'test',
-        label1:'test1',
+        ads:[],
+        category:[],
+        recommendedAds:[]
       }
       this.ads=[]
-      // this.setTimeout(() => {
-      //   this.ads=[
-      //     {images:[], title:'Jojos Crib', desc:'3 Bed Room All', price:'$40', priceSubtitle:'Per Night', owner:{title:'Detective Pikachu', subtitle:'Owner', profileImage:'', rightImage:''}},
-      //     {images:[], title:'Club House', desc:'3 Bed Room All around for you this is the best place for people who are planning on starting a family', price:'$40', priceSubtitle:'Per Night', owner:{title:'Squirtle Mash', subtitle:'Co-Host', profileImage:'', rightImage:''}},
-      //     {images:[], title:'Sports Club ', desc:'Perfect for hosting your birthday parties and social events Perfect for hosting your birthday parties and social events Perfect for hosting your birthday parties and social events Perfect for hosting your birthday parties and social events Perfect for hosting your birthday parties and social events', price:'$400', priceSubtitle:'Per Night', owner:{title:'Squirtle Mash', subtitle:'Co-Host', profileImage:'', rightImage:''}}
-      //   ] 
-      // }, 3000);
       this.fetchAds();
     }
     componentDidMount(){
+      this.fetchAds();
     }
 
     render() {        
         const {navigate} = this.props.navigation;
         return (
           <View style={this.styles.container}>
-            <ClientDashboardSubPage ads={this.ads} categoryOnClick={(category)=>{
+            <ClientDashboardSubPage ads={this.state.ads} category={this.state.category} categoryOnClick={(category)=>{
               this.selectCategory(category);
             }} rightButtonPressed={()=>{
               this.selectMenu();
@@ -84,18 +78,16 @@ class DashboardPage extends React.Component {
       }
     }
     fetchAds(){
-      // getAds(this.ads)
-      // .then(function(response) {
-      //   this.ads=response.data;
-      //   Alert.alert("Success", JSON.stringify(response.data));
-      //   this.refs.child.updateAds(response.data);
-      // }).catch(function (error) {
-      //   Alert.alert("Error", JSON.stringify(error))
-      // });
-    }
-    handleAdsChange(event) {
-      const text = event.target.value;
-      this.props.onChange(this.props.id, text);
+      getAds(function(data){
+        this.setState({ads:data});
+      }.bind(this), function(err){
+        Alert.alert("Failed",JSON.stringify(err));
+      }.bind(this))
+      getCategory(function(data){
+        this.setState({category:data});
+      }.bind(this), function(err){
+        Alert.alert("Failed",JSON.stringify(err));
+      }.bind(this))
     }
   }
 export default DashboardPage;
