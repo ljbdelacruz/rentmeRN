@@ -3,10 +3,10 @@ import { StyleSheet, View, Image, TouchableOpacity, Text, Alert } from 'react-na
 export class IncrementerButton1 extends Component {
     constructor(props){
         super(props);
-        this.setState({
+        this.state={
             count:0,
-            limit:10,
-        })
+            limit:10
+        }
     }
     render() {
       return (
@@ -14,22 +14,21 @@ export class IncrementerButton1 extends Component {
               <View style={this.styles.container}>
                   <TouchableOpacity style={this.styles.item1} onPress={()=>{
                       if(this.props.subEvent != null){
-                        if(parseInt(this.props.count) <= 0){
-                            this.props.count=''+parseInt(this.props.count, 10) - 1;                        
+                        if(parseInt(this.state.count) > 0){
+                            this.setState({count:parseInt(this.state.count)-1})                  
                         }
-                        this.props.subEvent(this.props.count);
+                        this.props.subEvent(this.state.count);
                       }
                   }}>
                     <Image source={require('./img/minus.png')} style={this.styles.imageSize}></Image>              
                   </TouchableOpacity>          
-                  <Text>{this.props.count}</Text>
+                  <Text>{this.state.count}</Text>
                   <TouchableOpacity style={this.styles.item2} onPress={()=>{
                     if(this.props.addEvent != null){
-                        Alert.alert(this.props.count);
-                        if(parseInt(this.props.count) < parseInt(this.props.limit)){
-                            this.props.count=parseInt(this.props.count + 1) ;                        
+                        if(parseInt(this.state.count) < parseInt(this.state.limit)){
+                            this.setState({count:parseInt(this.state.count)+1})                                        
                         }
-                        this.props.addEvent(this.props.count);                      
+                        this.props.addEvent(this.state.count);                      
                     }
                   }}>
                     <Image source={require('./img/add.png')} style={this.styles.imageSize}></Image>              

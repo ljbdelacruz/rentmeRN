@@ -80,6 +80,7 @@ class DashboardPage extends React.Component {
     fetchAds(){
       getAds(function(data){
         this.setState({ads:data});
+        // Alert.alert("Success",JSON.stringify(data));
       }.bind(this), function(err){
         Alert.alert("Failed",JSON.stringify(err));
       }.bind(this))

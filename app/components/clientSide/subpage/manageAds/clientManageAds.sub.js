@@ -12,10 +12,10 @@ export class ClientManageAdsSub extends Component {
         this.state={
             categories:[{title:'Rooms', count:'1'}, {title:'Bathroom', count:2}, {title:'Pool', count:1}, {title:'Gym', count:1}],
             // description:{title:'Descriptions', desc:'3 Bed Room All around for you this is the best place for people who are planning on starting a family.'},
-            // owner:{title:'Jojos Clubhouse', review:3, reviewer:120}
+            // owner:{title:'Jojos Clubhouse', review:3, reviewer:120},
+            count:0,
+            limit:9
         }
-        this.count=0;
-        this.limit=9;
     }
 
     render() {
@@ -40,7 +40,7 @@ export class ClientManageAdsSub extends Component {
                 }}></RentButton1>
             </View>
             <View style={this.styles.incrementer}>
-                <IncrementerButton1 count={this.count} limit={this.limit} addEvent={(count)=>{
+                <IncrementerButton1 count={this.state.count} limit={this.state.limit} addEvent={(count)=>{
                 }} subEvent={(count)=>{
                 }}></IncrementerButton1>
             </View>
