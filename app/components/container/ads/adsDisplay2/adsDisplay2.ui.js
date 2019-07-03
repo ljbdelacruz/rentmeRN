@@ -3,11 +3,17 @@ import {View, Image, Text, StyleSheet, TouchableOpacity } from 'react-native';
 export class AdDisplay2 extends Component {
     constructor(props){
         super(props)
+        /*
+            VM:
+            vm:{ image:'', title:'', price:'$20' }
+                        
+        */
     }
     render() {
       return (
           <View style={this.styles.container}>
                 <View style={this.styles.upperContainer}></View>
+                <Image source={}></Image>
                 <View style={this.styles.lowerContainer}>
                     <Text style={this.styles.titleAd}>{this.props.mytitle}</Text>
                     <Text style={this.styles.price}>{this.props.myprice}</Text>

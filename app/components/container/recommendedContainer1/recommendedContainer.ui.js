@@ -10,6 +10,7 @@ export class RecommendedContainer1 extends Component {
         {title:'Home Service Spa', price:'$20', description:'Massage Service with Sunspa treatment', images:[]}
        ]
     }
+    
     render() {
       return (
           <View style={this.styles.container}>
