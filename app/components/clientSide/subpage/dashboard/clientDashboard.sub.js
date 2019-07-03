@@ -26,7 +26,7 @@ export class ClientDashboardSubPage extends Component {
                             this.props.rightButtonPressed();
                         }}></DashboardHeader1>
                         <View style={this.styles.adsContainer}>
-                          <AdsList1 adsList={this.props.ads} selectAds={(ads)=>{
+                          <AdsList1 aiHide={this.props.aiAds} adsList={this.props.ads} selectAds={(ads)=>{
                             this.props.selectAds(ads);
                           }}
                           rightButtonOnClick={(userInfo)=>{

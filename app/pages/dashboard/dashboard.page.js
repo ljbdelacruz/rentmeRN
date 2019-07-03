@@ -14,6 +14,7 @@ class DashboardPage extends React.Component {
       super(props)
       this.state={
         ads:[],
+        adsFetchFinish:false,
         category:[],
         recommendedAds:[]
       }
@@ -28,7 +29,7 @@ class DashboardPage extends React.Component {
         const {navigate} = this.props.navigation;
         return (
           <View style={this.styles.container}>
-            <ClientDashboardSubPage ads={this.state.ads} category={this.state.category} categoryOnClick={(category)=>{
+            <ClientDashboardSubPage aiAds={this.state.adsFetchFinish} ads={this.state.ads} category={this.state.category} categoryOnClick={(category)=>{
               this.selectCategory(category);
             }} rightButtonPressed={()=>{
               this.selectMenu();
@@ -80,9 +81,10 @@ class DashboardPage extends React.Component {
     fetchAds(){
       getAds(function(data){
         this.setState({ads:data});
-        // Alert.alert("Success",JSON.stringify(data));
+        this.setState({adsFetchFinish:true});
       }.bind(this), function(err){
         Alert.alert("Failed",JSON.stringify(err));
+        this.setState({adsFetchFinish:true});
       }.bind(this))
       getCategory(function(data){
         this.setState({category:data});

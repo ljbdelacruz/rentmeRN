@@ -7,7 +7,7 @@ import {SubCategoryContainer1} from '../../components/clientSide/subcatcontainer
 import {ClientManageAdsSub} from '../../components/clientSide/subpage/manageAds/clientManageAds.sub'
 class ManageAdsPage extends React.Component {
   static navigationOptions = {
-    title: 'Welcome',
+    title: 'Welcome'
   };
     constructor(props){
         super(props);

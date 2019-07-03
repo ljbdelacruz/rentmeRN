@@ -1,20 +1,10 @@
 import React, { Component } from 'react';
-import { StyleSheet, Button, View, TouchableOpacity, Alert, TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, Button, View, TouchableOpacity, Alert, TouchableWithoutFeedback, ActivityIndicator } from 'react-native';
 import {AdsDisplay1} from '../adsDisplay1/adsDisplay1.ui'
 export class AdsList1 extends Component {
     constructor(prop){
         super(prop);
-        // this.state={
-        //   adsList:[]
-        // }
-        this.setState({
-          adsList:[]
-        })
     }
-    // updateComponent(data){
-    //   Alert.alert(data);
-    //   this.setState({adsList:data})
-    // }
     render() {
       return (
         <View>
@@ -29,6 +19,7 @@ export class AdsList1 extends Component {
                         </TouchableOpacity>
                     );
               })}
+              <ActivityIndicator hidesWhenStopped={true} animating={!this.props.aiHide} size="large" color="#0000ff" />
         </View>
       );
     }
