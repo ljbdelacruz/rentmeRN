@@ -10,8 +10,9 @@ export class RatingsCustom1 extends Component {
       return (
           <View>
               <View style={this.styles.container}>
-                <View style={this.styles.starReview}>
-                    <StarRating disabled={false} maxStars={5} rating={this.props.review} />
+                <View>
+                    <StarRating starStyle={this.styles.starReview} height={20} disabled={false} maxStars={5} rating={this.props.review}
+                     halfStar={require('./img/half.png')} fullStar={require('./img/star.png')} emptyStar={require('./img/estar.png')}/>
                 </View>
                 <Text style={this.styles.reviewText}>{this.props.review} of {this.props.reviewer}</Text>                
               </View>
@@ -26,7 +27,7 @@ export class RatingsCustom1 extends Component {
             flexDirection: 'row',
         },
         starReview:{
-            // width:20,
+            width:20,
             height:20,
             // backgroundColor:'yellow',
             // marginLeft: 1,
