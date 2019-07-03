@@ -22,7 +22,7 @@ export class IncrementerButton1 extends Component {
                   }}>
                     <Image source={require('./img/minus.png')} style={this.styles.imageSize}></Image>              
                   </TouchableOpacity>          
-                  <Text>{this.state.count}</Text>
+                  <Text style={this.styles.textStyle}>{this.state.count}</Text>
                   <TouchableOpacity style={this.styles.item2} onPress={()=>{
                     if(this.props.addEvent != null){
                         if(parseInt(this.state.count) < parseInt(this.state.limit)){
@@ -57,6 +57,9 @@ export class IncrementerButton1 extends Component {
             alignItems:'flex-end',
             width:30,
             height:30
+        },
+        textStyle:{
+            fontSize:15
         }
 
         
