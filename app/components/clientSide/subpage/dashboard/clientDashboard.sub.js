@@ -31,8 +31,7 @@ export class ClientDashboardSubPage extends Component {
                           }}
                           rightButtonOnClick={(userInfo)=>{
                             this.props.rightButtonOnClick(userInfo);
-                          }}
-                          ></AdsList1>
+                          }}></AdsList1>
                         </View>
                         <RecommendedContainer1 onSelectAds={(ads)=>{
                           this.props.onSelectAds(ads);
