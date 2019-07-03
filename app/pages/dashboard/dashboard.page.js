@@ -91,6 +91,13 @@ class DashboardPage extends React.Component {
       }.bind(this), function(err){
         Alert.alert("Failed",JSON.stringify(err));
       }.bind(this))
+      getRecommendedAds(function(data){
+        
+      }.bind(this), function(err){
+
+      }.bind(this))
+
+
     }
   }
 export default DashboardPage;
