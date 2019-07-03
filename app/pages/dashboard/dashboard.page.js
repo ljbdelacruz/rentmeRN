@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, ScrollView, Alert, TouchableOpacity } from 'react-native';
-import {DashboardHeader1} from '../../components/header/DashboardHeader1/dashboardHeader1.ui'
-import {RecommendedContainer1} from '../../components/container/recommendedContainer1/recommendedContainer.ui'
-import {AdsList1} from '../../components/container/ads/adsList1/adsList1.ui'
 import {ClientDashboardSubPage} from '../../components/clientSide/subpage/dashboard/clientDashboard.sub'
 import {getAds, getCategory, getRecommendedAds} from '../../services/api.service'
+import {HostDashboardSub} from '../../components/hostSide/subpage/hostDashboard/hostDashboard.sub'
 
 class DashboardPage extends React.Component {
     static navigationOptions = {
@@ -16,7 +14,9 @@ class DashboardPage extends React.Component {
         ads:[],
         adsFetchFinish:false,
         category:[],
-        recommendedAds:[]
+        recommendedAds:[],
+        type:1,
+
       }
       this.ads=[]
       this.fetchAds();
@@ -40,6 +40,9 @@ class DashboardPage extends React.Component {
             }} onSelectAds={(ads)=>{
               this.selectRecommendation(ads);
             }}></ClientDashboardSubPage>
+
+
+            <HostDashboardSub></HostDashboardSub>
           </View>
         );
     }

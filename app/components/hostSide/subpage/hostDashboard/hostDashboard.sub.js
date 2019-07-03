@@ -7,11 +7,10 @@ export class HostDashboardSub extends Component {
         this.state={
         }
     }
-
     render() {
       return(
         <View>
-
+            <Text>Host Dashboard</Text>
         </View>);
     }
     styles = StyleSheet.create({
