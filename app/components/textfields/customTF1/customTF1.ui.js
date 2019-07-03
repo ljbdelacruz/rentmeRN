@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
-import { Platform, TextInput, StyleSheet } from 'react-native';
+import { Platform, TextInput, StyleSheet, Alert} from 'react-native';
 
 export class CustomTF1 extends Component {
     render(){
       return (
-        <TextInput style={this.styles.container}  {...this.props}  />
+        <TextInput style={this.styles.container}  {...this.props}  onChangeText={(text)=>{
+            if(this.props.onChangeText){
+                this.props.onChangeText(text);
+            }            
+        }}/>
       );
     }
     styles = StyleSheet.create({
@@ -18,7 +22,7 @@ export class CustomTF1 extends Component {
             width:'100%',
             //shadow design
             ...Platform.select({
-                ios: {
+                ios:{
                     shadowOffset:{  width: 5,  height: 5,  },
                     shadowColor: '#8e8e93',
                     shadowOpacity: 0.5,                    
