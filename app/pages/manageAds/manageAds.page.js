@@ -7,19 +7,20 @@ import {SubCategoryContainer1} from '../../components/clientSide/subcatcontainer
 import {ClientManageAdsSub} from '../../components/clientSide/subpage/manageAds/clientManageAds.sub'
 class ManageAdsPage extends React.Component {
   static navigationOptions = {
-    title: 'Welcome',
+    title: 'Welcome'
   };
     constructor(props){
         super(props);
         this.params=this.props.navigation.state.params;
         this.data={
           //setting up the data to be passed to the ads
-          description:{title:this.params.ads.title,
+          description:{
+                       title:this.params.ads.title,
                        desc:this.params.ads.desc,
                        price:this.params.price,
                        priceSubtitle:this.params.priceSubtitle,
-                       review:3,
-                       reviewer:120
+                       review:this.params.ads.review.review,
+                       reviewer:this.params.ads.review.reviewer
                       },
         }
     }

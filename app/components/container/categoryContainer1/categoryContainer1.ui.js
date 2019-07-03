@@ -12,7 +12,7 @@ export class CategoryContainer1 extends Component {
       return (
           <View style={this.styles.container}>
               <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={this.styles.scrollviewContainer}>
-              {categories.map(category => {
+              {this.props.categories.map(category => {
                     return (
                         <View style={this.styles.buttons}>
                             <CustomButton1 title={category.name} onPress={()=>{

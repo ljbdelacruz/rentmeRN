@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, View, Text, TouchableNativeFeedback } from 'react-native';
+import { Platform, StyleSheet, View, Text } from 'react-native';
+import {RatingsCustom1} from '..//../../ratings/ratingsCustom1/ratingsCustom1.ui'
 import {UserInfoInquiry1} from '../../userInfoInquiry1/userInfoInquiry.ui'
 export class AdsDisplay1 extends Component {
     constructor(props){
         super(props)
-        this.setState({
-            adInfo:{images:[], title:'', desc:'', price:'', priceSubtitle:'', owner:{title:'', subtitle:'', profileImage:'', rightImage:''}}
-        })
     }
     render() {
       return (
@@ -22,6 +20,9 @@ export class AdsDisplay1 extends Component {
                       <View style={this.styles.rightContainer}>
                         <Text style={this.styles.titleStyle}>{this.props.adInfo.title}</Text>
                         <Text style={this.styles.contentStyle}> {this.props.adInfo.desc}</Text>
+                        <View style={this.styles.ratingContainer}>
+                            <RatingsCustom1 review={this.props.adInfo.review.review} reviewer={this.props.adInfo.review.reviewer}></RatingsCustom1>
+                        </View>
                       </View>
                       <View style={this.styles.leftContainer}>
                         <Text style={this.styles.priceStyle}>{this.props.adInfo.price}</Text>
@@ -101,6 +102,9 @@ export class AdsDisplay1 extends Component {
         },
         subDescPriceStyle:{
             fontSize:8
+        },
+        ratingContainer:{
+            marginTop:10
         }
 
     });

@@ -3,53 +3,36 @@ import { StyleSheet, View, ScrollView, Button, Alert } from 'react-native';
 import {DashboardHeader1} from '../../../header/DashboardHeader1/dashboardHeader1.ui'
 import {RecommendedContainer1} from '../../../container/recommendedContainer1/recommendedContainer.ui'
 import {AdsList1} from '../../../container/ads/adsList1/adsList1.ui'
-import {getAds} from '../../../../services/api.service'
+
 export class ClientDashboardSubPage extends Component {
     constructor(prop){
         super(prop);
         this.state={
-          ads:[]
+          ads:[],
+          category:[],
+          recommendedAds:[]
         }
-        this.updateAds();
     }
-    updateAds(){
-      getAds(this.ads)
-      .then(function(response) {
-        // this.setState({ads:response.data});
-        Alert.alert("Success",JSON.stringify(response.data));
-
-      }).catch(function (error) {
-        Alert.alert("Error", JSON.stringify(error))
-      });
-    }
-
-
     render() {
       this.dest=this.props.ads;
       return (
             <View style={this.styles.container}>
                   <View style={this.styles.mainContainer}>
                       <ScrollView showsVerticalScrollIndicator={false}>
-                        <Button title='TEST' onPress={()=>{
-                          Alert.alert(JSON.stringify(this.state.ads));
-                        }}></Button>
-
-
-                        <DashboardHeader1 categoryOnClick={(category)=>{
+                        <DashboardHeader1 categories={this.props.category} categoryOnClick={(category)=>{
                           this.props.categoryOnClick(category);
                         }} rightButtonPressed={()=>{
                             this.props.rightButtonPressed();
                         }}></DashboardHeader1>
                         <View style={this.styles.adsContainer}>
-                          <AdsList1 adsList={this.state.ads} selectAds={(ads)=>{
+                          <AdsList1 aiHide={this.props.aiAds} adsList={this.props.ads} selectAds={(ads)=>{
                             this.props.selectAds(ads);
                           }}
                           rightButtonOnClick={(userInfo)=>{
                             this.props.rightButtonOnClick(userInfo);
-                          }}
-                          ></AdsList1>
+                          }}></AdsList1>
                         </View>
-                        <RecommendedContainer1 onSelectAds={(ads)=>{
+                        <RecommendedContainer1 ads={this.props.rads} onSelectAds={(ads)=>{
                           this.props.onSelectAds(ads);
                         }}></RecommendedContainer1>
                       </ScrollView>

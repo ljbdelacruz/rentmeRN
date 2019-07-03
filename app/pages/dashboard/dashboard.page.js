@@ -1,27 +1,39 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, ScrollView, Alert } from 'react-native';
-import {DashboardHeader1} from '../../components/header/DashboardHeader1/dashboardHeader1.ui'
-import {RecommendedContainer1} from '../../components/container/recommendedContainer1/recommendedContainer.ui'
-import {AdsList1} from '../../components/container/ads/adsList1/adsList1.ui'
+import { View, StyleSheet, ScrollView, Alert, TouchableOpacity } from 'react-native';
 import {ClientDashboardSubPage} from '../../components/clientSide/subpage/dashboard/clientDashboard.sub'
-import {getAds} from '../../services/api.service'
+import {getAds, getCategory, getRecommendedAds} from '../../services/api.service'
+import {HostDashboardSub} from '../../components/hostSide/subpage/hostDashboard/hostDashboard.sub'
+
 class DashboardPage extends React.Component {
     static navigationOptions = {
       title: 'Dashboard',
     };
     constructor(props){
       super(props)
+      this.state={
+        ads:[],
+        adsFetchFinish:false,
+        category:[],
+        recommendedAds:[],
+        type:1,
+
+      }
       this.ads=[]
       this.fetchAds();
     }
     componentDidMount(){
+      this.fetchAds();
     }
-    render() {
+
+    render() {        
         const {navigate} = this.props.navigation;
-        console.log("test");
         return (
           <View style={this.styles.container}>
+<<<<<<< HEAD
             <ClientDashboardSubPage ads={this.ads} categoryOnClick={(category)=>{
+=======
+            <ClientDashboardSubPage aiAds={this.state.adsFetchFinish} ads={this.state.ads} category={this.state.category} rads={this.state.recommendedAds} categoryOnClick={(category)=>{
+>>>>>>> fe669bec323654cab621e16090d05576d33c1217
               this.selectCategory(category);
             }} rightButtonPressed={()=>{
               this.selectMenu();
@@ -32,6 +44,9 @@ class DashboardPage extends React.Component {
             }} onSelectAds={(ads)=>{
               this.selectRecommendation(ads);
             }}></ClientDashboardSubPage>
+
+
+            <HostDashboardSub></HostDashboardSub>
           </View>
         );
     }
@@ -51,7 +66,7 @@ class DashboardPage extends React.Component {
       this.navigatePages(2, {ads:ads});
     }
     selectRecommendation(ads){
-        Alert.alert(ads.title);
+      this.navigatePages(2, {ads:ads});
     }
     selectMenu(){
       this.navigatePages(1, {});
@@ -71,6 +86,7 @@ class DashboardPage extends React.Component {
       }
     }
     fetchAds(){
+<<<<<<< HEAD
       // getAds(this.ads)
       // .then(function(response) {
       //   this.ads=response.data;
@@ -79,6 +95,27 @@ class DashboardPage extends React.Component {
       // }).catch(function (error) {
       //   Alert.alert("Error", JSON.stringify(error))
       // });
+=======
+      getAds(function(data){
+        this.setState({ads:data});
+        this.setState({adsFetchFinish:true});
+      }.bind(this), function(err){
+        Alert.alert("Failed",JSON.stringify(err));
+        this.setState({adsFetchFinish:true});
+      }.bind(this))
+      getCategory(function(data){
+        this.setState({category:data});
+      }.bind(this), function(err){
+        Alert.alert("Failed",JSON.stringify(err));
+      }.bind(this))
+      getRecommendedAds(function(data){
+        this.setState({recommendedAds:data})
+      }.bind(this), function(err){
+        Alert.alert("Failed",JSON.stringify(err));
+      }.bind(this))
+
+
+>>>>>>> fe669bec323654cab621e16090d05576d33c1217
     }
   }
 export default DashboardPage;

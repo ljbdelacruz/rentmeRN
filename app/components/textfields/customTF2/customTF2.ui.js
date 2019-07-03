@@ -12,7 +12,7 @@ export class CustomTF2 extends Component {
             <View style={styles.rect} />
             <Image
               style={styles.image}
-              source={this.viewModel.imageSource}
+              source={require(this.viewModel.imageSource)}
             />
             <TextInput
               style={styles.textInput}

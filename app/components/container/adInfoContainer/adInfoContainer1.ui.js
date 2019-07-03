@@ -4,9 +4,12 @@ import {RatingsCustom1} from '../../ratings/ratingsCustom1/ratingsCustom1.ui'
 export class AdsInfoContainer1 extends Component {
     constructor(props){
         super(props)
-        this.setState({
+        this.state={
             ad:{title:'', review:4, reviewer:140}
-        })
+        }
+    }
+    componentDidMount(){
+
     }
     render() {
       return (
