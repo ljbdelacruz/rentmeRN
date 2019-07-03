@@ -5,10 +5,16 @@ import {AdDisplay2} from '../ads/adsDisplay2/adsDisplay2.ui'
 export class RecommendedContainer1 extends Component {
     constructor(props){
         super(props)
-        adsList=[{title:'Club House', price:'$40', description:'3 Bed Room All around for you this is the best place for people who are planning on starting a family', image:[]}, 
-        {title:'Jojos Crib', price:'$20', description:'3 Bed Room All around for you this is the best place for people who are planning on starting a family', images:[]},
-        {title:'Home Service Spa', price:'$20', description:'Massage Service with Sunspa treatment', images:[]}
-       ]
+        this.state={
+            adsList:[]
+        }
+    }
+    componentDidMount(){
+        this.setState({adsList:[
+            {title:'Club House', price:'$40', description:'3 Bed Room All around for you this is the best place for people who are planning on starting a family', image:[]}, 
+            {title:'Jojos Crib', price:'$20', description:'3 Bed Room All around for you this is the best place for people who are planning on starting a family', images:[]},
+            {title:'Home Service Spa', price:'$20', description:'Massage Service with Sunspa treatment', images:[]}
+        ]})
     }
     
     render() {
@@ -17,7 +23,7 @@ export class RecommendedContainer1 extends Component {
               <Text>Recommended</Text>
               <View style={this.styles.subContainer}>
                 <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={this.styles.scrollviewContainer}>
-                    {adsList.map(ads => {
+                    {this.state.adsList.map(ads => {
                         return (
                             <TouchableOpacity style={this.styles.adContainer} onPress={()=>{
                                 this.adsOnClick(ads);
