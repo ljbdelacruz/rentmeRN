@@ -32,7 +32,7 @@ export class ClientDashboardSubPage extends Component {
                             this.props.rightButtonOnClick(userInfo);
                           }}></AdsList1>
                         </View>
-                        <RecommendedContainer1 onSelectAds={(ads)=>{
+                        <RecommendedContainer1 ads={this.props.rads} onSelectAds={(ads)=>{
                           this.props.onSelectAds(ads);
                         }}></RecommendedContainer1>
                       </ScrollView>

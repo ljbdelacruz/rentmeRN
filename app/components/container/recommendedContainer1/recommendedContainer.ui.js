@@ -23,7 +23,7 @@ export class RecommendedContainer1 extends Component {
               <Text>Recommended</Text>
               <View style={this.styles.subContainer}>
                 <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={this.styles.scrollviewContainer}>
-                    {this.state.adsList.map(ads => {
+                    {this.props.ads.map(ads => {
                         return (
                             <TouchableOpacity style={this.styles.adContainer} onPress={()=>{
                                 this.adsOnClick(ads);

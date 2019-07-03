@@ -29,7 +29,7 @@ class DashboardPage extends React.Component {
         const {navigate} = this.props.navigation;
         return (
           <View style={this.styles.container}>
-            <ClientDashboardSubPage aiAds={this.state.adsFetchFinish} ads={this.state.ads} category={this.state.category} categoryOnClick={(category)=>{
+            <ClientDashboardSubPage aiAds={this.state.adsFetchFinish} ads={this.state.ads} category={this.state.category} rads={this.state.recommendedAds} categoryOnClick={(category)=>{
               this.selectCategory(category);
             }} rightButtonPressed={()=>{
               this.selectMenu();
@@ -59,7 +59,7 @@ class DashboardPage extends React.Component {
       this.navigatePages(2, {ads:ads});
     }
     selectRecommendation(ads){
-        Alert.alert(ads.title);
+      this.navigatePages(2, {ads:ads});
     }
     selectMenu(){
       this.navigatePages(1, {});
@@ -92,9 +92,9 @@ class DashboardPage extends React.Component {
         Alert.alert("Failed",JSON.stringify(err));
       }.bind(this))
       getRecommendedAds(function(data){
-        
+        this.setState({recommendedAds:data})
       }.bind(this), function(err){
-
+        Alert.alert("Failed",JSON.stringify(err));
       }.bind(this))
 
 
