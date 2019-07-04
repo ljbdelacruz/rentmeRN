@@ -22,7 +22,9 @@ class DashboardPage extends React.Component {
         if(this.state.type == 1){
           return (
             <View>
-              <ClientDashboardSubPage></ClientDashboardSubPage>
+              <ClientDashboardSubPage navigatePages={(option, param)=>{
+                this.navigationPages(option, param);
+              }}></ClientDashboardSubPage>
             </View>
           )
         }else{
@@ -32,8 +34,6 @@ class DashboardPage extends React.Component {
             </View>
           )
         }
-
-
     }
     styles = StyleSheet.create({
         container:{
@@ -42,6 +42,18 @@ class DashboardPage extends React.Component {
             height:'100%',
         },
     });
+
+    navigationPages(option, param){
+      const {navigate} = this.props.navigation;
+      switch(option){
+        case 1:
+          navigate('Settings');
+          break;
+        case 2:
+          navigate('ManageAds', param)
+          break;
+      }
+    }
 
 
   }

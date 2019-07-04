@@ -17,7 +17,7 @@ export class ClientDashboardSubPage extends Component {
         
     }
     componentDidMount(){
-      this.fetchAds();
+      this.fetchData();
     }
 
     render() {
@@ -74,27 +74,16 @@ export class ClientDashboardSubPage extends Component {
       Alert.alert(category.name)
     }
     selectAds(ads){
-      this.navigatePages(2, {ads:ads});
+      this.props.navigatePages(2, {ads:ads});
     }
     selectRecommendation(ads){
-      this.navigatePages(2, {ads:ads});
+      this.props.navigatePages(2, {ads:ads});
     }
     selectMenu(){
-      this.navigatePages(1, {});
+      this.props.navigatePages(1, {});
     }
     sendUserAMessage(userInfo){
       Alert.alert(userInfo.title);
-    }
-    navigatePages(option, param){
-      const {navigate} = this.props.navigation;
-      switch(option){
-        case 1:
-          navigate('Settings');
-          break;
-        case 2:
-          navigate('ManageAds', param)
-          break;
-      }
     }
 
     //data fetching in this sub page
