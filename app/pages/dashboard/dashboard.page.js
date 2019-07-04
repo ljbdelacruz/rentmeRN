@@ -27,13 +27,16 @@ class DashboardPage extends React.Component {
 
     render() {        
         const {navigate} = this.props.navigation;
+        if(this.state.type == 1){
+          return (<View></View>)
+        }
+
         return (
           <View style={this.styles.container}>
-<<<<<<< HEAD
-            <ClientDashboardSubPage ads={this.ads} categoryOnClick={(category)=>{
-=======
+            {
+
+            }
             <ClientDashboardSubPage aiAds={this.state.adsFetchFinish} ads={this.state.ads} category={this.state.category} rads={this.state.recommendedAds} categoryOnClick={(category)=>{
->>>>>>> fe669bec323654cab621e16090d05576d33c1217
               this.selectCategory(category);
             }} rightButtonPressed={()=>{
               this.selectMenu();
@@ -86,16 +89,6 @@ class DashboardPage extends React.Component {
       }
     }
     fetchAds(){
-<<<<<<< HEAD
-      // getAds(this.ads)
-      // .then(function(response) {
-      //   this.ads=response.data;
-      //   Alert.alert("Success", JSON.stringify(response.data));
-      //   this.refs.child.updateAds(response.data);
-      // }).catch(function (error) {
-      //   Alert.alert("Error", JSON.stringify(error))
-      // });
-=======
       getAds(function(data){
         this.setState({ads:data});
         this.setState({adsFetchFinish:true});
@@ -115,7 +108,6 @@ class DashboardPage extends React.Component {
       }.bind(this))
 
 
->>>>>>> fe669bec323654cab621e16090d05576d33c1217
     }
   }
 export default DashboardPage;
