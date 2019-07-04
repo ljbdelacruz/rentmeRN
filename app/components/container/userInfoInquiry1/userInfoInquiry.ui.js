@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import {StyleSheet, View, Text, TouchableOpacity } from 'react-native';
-import {RatingsCustom1} from '../../ratings/ratingsCustom1/ratingsCustom1.ui'
+import {StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
+
 
 export class UserInfoInquiry1 extends Component {
     constructor(props){
@@ -13,11 +13,17 @@ export class UserInfoInquiry1 extends Component {
       return (
           <View>
               <View style={this.styles.container}>
-                <View style={this.styles.subcontainer2}></View>
-                <View style={this.styles.subcontainer}>
-                    <Text>{this.props.userInfo.title}</Text>
-                    <Text>{this.props.userInfo.subtitle}</Text>
-                </View>
+                <TouchableOpacity style={this.styles.subContainer1_2} onPress={()=>{
+                    if(this.props.leftOnClick != null){
+                        this.props.leftOnClick();
+                    }
+                }}>
+                    <Image source={require('./img/pimage.jpg')} style={this.styles.subcontainer2}></Image>
+                    <View style={this.styles.subcontainer}>
+                        <Text>{this.props.userInfo.title}</Text>
+                        <Text>{this.props.userInfo.subtitle}</Text>
+                    </View>
+                </TouchableOpacity>
                 <TouchableOpacity style={this.styles.subcontainer1} onPress={()=>{
                     this.props.rightButtonOnClick(this.props.userInfo);   
                 }}>
@@ -42,6 +48,10 @@ export class UserInfoInquiry1 extends Component {
             backgroundColor:'blue',
             width:30,
             height:30
+        },
+        subContainer1_2:{
+            flexDirection:'row',
+            flex:1,
         },
         subcontainer2:{
             backgroundColor:'blue',

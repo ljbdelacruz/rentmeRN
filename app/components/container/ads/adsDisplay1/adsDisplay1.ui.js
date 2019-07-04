@@ -2,10 +2,13 @@ import React, { Component } from 'react';
 import { Platform, StyleSheet, View, Text } from 'react-native';
 import {RatingsCustom1} from '..//../../ratings/ratingsCustom1/ratingsCustom1.ui'
 import {UserInfoInquiry1} from '../../userInfoInquiry1/userInfoInquiry.ui'
+
 export class AdsDisplay1 extends Component {
     constructor(props){
         super(props)
     }
+
+    
     render() {
       return (
           <View style={this.styles.container}>

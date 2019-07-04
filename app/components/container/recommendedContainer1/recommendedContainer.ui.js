@@ -26,7 +26,9 @@ export class RecommendedContainer1 extends Component {
                     {this.props.ads.map(ads => {
                         return (
                             <TouchableOpacity style={this.styles.adContainer} onPress={()=>{
-                                this.adsOnClick(ads);
+                                if(this.props.onSelectAds != null){
+                                    this.props.onSelectAds(ads);
+                                }
                             }}>
                                 <AdDisplay2 mytitle={ads.title} myprice={ads.price} ></AdDisplay2>
                             </TouchableOpacity>
@@ -55,7 +57,7 @@ export class RecommendedContainer1 extends Component {
         },
         scrollviewContainer:{
             marginTop: 5,
-            marginLeft:10,
+            marginRight:10,
         },
         adContainer:{
             width:150,
@@ -65,9 +67,4 @@ export class RecommendedContainer1 extends Component {
 
 
     });
-    adsOnClick(ads){
-        this.props.onSelectAds(ads);
-    }
-
-
   }
