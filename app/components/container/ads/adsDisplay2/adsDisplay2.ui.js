@@ -26,7 +26,6 @@ export class AdDisplay2 extends Component {
             borderRadius: 10,
             width:'100%',
             height:'100%',
-            
         },
         upperContainer:{
             flex:2,
