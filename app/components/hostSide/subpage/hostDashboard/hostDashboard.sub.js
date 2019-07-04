@@ -23,16 +23,6 @@ export class HostDashboardSub extends Component {
                     </View>
                   );
               })}
-              {/* <View style={this.styles.btnContainer}>
-                <CustomButton4 mytitle='Manage Ads' onClick={()=>{
-                  this.props.navigatePages(3)
-                }}></CustomButton4>
-              </View>
-              <View style={this.styles.btnContainer}>
-                <CustomButton4 mytitle='Reviews' onClick={()=>{
-                  this.props.navigatePages(4)
-                }}></CustomButton4>
-              </View> */}
             </View>
         </View>
       );
