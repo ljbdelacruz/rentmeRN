@@ -9,7 +9,6 @@ class ExperimentPage extends React.Component {
       return (
         <View>
             <Text>Experiment Page</Text>
-            
         </View>
       );
     }

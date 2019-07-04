@@ -11,7 +11,7 @@ class DashboardPage extends React.Component {
     constructor(props){
       super(props)
       this.state={
-        type:1,
+        type:2,
       }
     }
     componentDidMount(){
@@ -30,7 +30,9 @@ class DashboardPage extends React.Component {
         }else{
           return (
             <View>
-              <HostDashboardSub></HostDashboardSub>
+              <HostDashboardSub navigatePages={(option, param)=>{
+                this.navigationPages(option, param);
+              }}></HostDashboardSub>
             </View>
           )
         }
