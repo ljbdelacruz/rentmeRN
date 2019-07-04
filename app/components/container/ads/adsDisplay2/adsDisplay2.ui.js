@@ -26,10 +26,7 @@ export class AdDisplay2 extends Component {
             borderRadius: 10,
             width:'100%',
             height:'100%',
-            //shadow design
-            shadowOffset:{  width: 1,  height: 1,  },
-            shadowColor: 'gray',
-            shadowOpacity: 1.0,
+            
         },
         upperContainer:{
             flex:2,

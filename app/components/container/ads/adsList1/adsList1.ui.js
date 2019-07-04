@@ -29,7 +29,7 @@ export class AdsList1 extends Component {
 
     styles = StyleSheet.create({
         adViews:{
-            marginBottom:10
+            marginBottom:10,
         },
     });
 

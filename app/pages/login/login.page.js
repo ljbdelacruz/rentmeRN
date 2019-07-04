@@ -3,6 +3,7 @@ import {CustomButton1} from '../../components/buttons/customButton1/customButton
 import React, { Component } from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 
+
 class LoginPage extends React.Component {
     static navigationOptions = {
         title: 'Welcome',
@@ -27,6 +28,7 @@ class LoginPage extends React.Component {
             <View style={this.styles.tf1}>
                 <CustomButton1 title="Login" onPress={()=>{this.loginPressed()}} ></CustomButton1>
             </View>
+            <View style={this.styles.temp}></View>
 
         </View>
       );
@@ -58,6 +60,16 @@ class LoginPage extends React.Component {
         tf1:{
             marginTop: 10,
             width: '90%'
+        },
+        temp:{
+            height:30,
+            width:100,
+            shadowOpacity: 0.75,
+            shadowRadius: 5,
+            shadowColor: 'black',
+            backgroundColor:'blue',
+            shadowOffset: {width:10, height:10},
+            elevation:4,
         }
     });
 }

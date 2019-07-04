@@ -65,7 +65,7 @@ export class ClientDashboardSubPage extends Component {
           width:'95%',
           left:'2.5%',
           marginTop:-60,
-          zIndex:2
+          zIndex:2,
         }
     });
 

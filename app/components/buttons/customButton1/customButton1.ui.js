@@ -25,7 +25,9 @@ export class CustomButton1 extends Component {
                 width:'100%',
                 height:'100%',
                 borderRadius: 10,
-                shadowOffset:{  width: 1,  height: 1,  },
+
+
+                shadowOffset:{  width: 2,  height: 5,  },
                 shadowColor: 'gray',
                 shadowOpacity: 1.0,
               },
@@ -37,7 +39,7 @@ export class CustomButton1 extends Component {
             backgroundColor: '#fff',
             ...Platform.select({
                 android: {
-                  shadowOffset:{  width: 1,  height: 1,  },
+                  shadowOffset:{  width: 2,  height: 5 },
                   shadowColor: 'gray',
                   shadowOpacity: 1.0,
                 },

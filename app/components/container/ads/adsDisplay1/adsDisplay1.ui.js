@@ -50,6 +50,7 @@ export class AdsDisplay1 extends Component {
             shadowOffset:{  width: 10,  height: 10,  },
             shadowColor: 'gray',
             shadowOpacity: 1.0,
+            elevation:4,
         },
         container1:{
             flex:1,
@@ -108,5 +109,9 @@ export class AdsDisplay1 extends Component {
         }
 
     });
+
+
+
+    
 
   }

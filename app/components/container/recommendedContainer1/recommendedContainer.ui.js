@@ -45,15 +45,22 @@ export class RecommendedContainer1 extends Component {
         },
         subContainer:{
             flex:1,
-            flexDirection: 'row'
+            flexDirection: 'row',
+            shadowOffset:{  width: 10,  height: 10,  },
+            backgroundColor:'#B0F4E6',
+            shadowColor: 'gray',
+            shadowOpacity: 1.0,
+            elevation:4,
+
         },
         scrollviewContainer:{
             marginTop: 5,
-            marginLeft:10
+            marginLeft:10,
         },
         adContainer:{
             width:150,
-            height:150
+            height:150,
+            marginLeft:10,
         }
 
 
