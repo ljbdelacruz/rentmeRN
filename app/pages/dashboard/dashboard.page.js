@@ -54,6 +54,12 @@ class DashboardPage extends React.Component {
         case 2:
           navigate('ManageAds', param)
           break;
+        case 3:
+          Alert.alert("Manage Ads")
+          break;
+        case 4:
+          Alert.alert("Reviews")
+          break;
       }
     }
 
