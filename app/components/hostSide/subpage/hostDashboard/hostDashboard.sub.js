@@ -12,7 +12,9 @@ export class HostDashboardSub extends Component {
     render() {
       return(
         <View>
-            <Text>Host Dashboard</Text>
+            <View style={this.styles.headContainer}>
+              <View style={this.styles.headDashboard}></View>
+            </View>
             <View style={this.styles.menuContainer}>
               {this.state.buttons.map(button => {
                   return (
@@ -30,12 +32,25 @@ export class HostDashboardSub extends Component {
     styles = StyleSheet.create({
       menuContainer:{
         flexDirection: 'row',
+        marginTop: 10,
       },
       btnContainer:{
         flex:1,
         width:60,
         height:70,
-      }        
+      },
+      headContainer:{
+        height:250,
+        width:'100%'
+      },
+      headDashboard:{
+        borderBottomLeftRadius:10,
+        borderBottomRightRadius: 10,
+        height:'100%',
+        width:'100%',
+        backgroundColor:'#B0F4E6',
+        zIndex:1,
+      },        
     });
 
 

@@ -12,10 +12,6 @@ export class AdsList1 extends Component {
       if(this.props.adsList.length > 0){
         return (
           <View>
-              {/* <FlatList
-               data={this.props.adsList}
-               renderItem={this._renderItem}>  
-              </FlatList> */}
                {this.props.adsList.map(ads => {
                       return (
                           <TouchableOpacity style={this.styles.adViews} onPress={()=>{
@@ -42,7 +38,7 @@ export class AdsList1 extends Component {
     styles = StyleSheet.create({
         adViews:{
             marginBottom:10,
-        },
+        }
     });
 
 
