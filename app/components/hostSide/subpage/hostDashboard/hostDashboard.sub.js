@@ -3,19 +3,20 @@ import { StyleSheet, View, Text, Alert } from 'react-native';
 import {CustomButton4} from '../../../buttons/customButton4/customButton4.ui'
 import {RatingsCustom1} from '../../../ratings/ratingsCustom1/ratingsCustom1.ui'
 import {getUserReview} from '../../../../services/api.service'
-import {MyImageButton1} from '../../../buttons/imageButton1/imageButton1.ui'
+import {MenuButton1} from '../../../buttons/menuButton1/menuButton1.ui'
+
 export class HostDashboardSub extends Component {
     constructor(prop){
         super(prop);
         this.state={
-          buttons:[{title:'Manage Ads', value:3, param:{}}, {title:'Reviews', value:4, param:{}}, {title:'Create Ads', value:5, param:{}}],
+          rowButtons1:[{title:'Manage Ads', value:3, param:{}}, {title:'Reviews', value:4, param:{}}, {title:'Create Ads', value:5, param:{}}],
           review:{review:0, reviewer:0}
         }
     }
     componentDidMount(){
       this.fetchData();
     }
-    
+
     //#region view renderer
     render() {
       return(
@@ -25,7 +26,7 @@ export class HostDashboardSub extends Component {
 
                 <View style={this.styles.ratingsContainer}>
                   <View style={this.styles.menuBtn}>
-                      <MyImageButton1 src={'/app/assets/icons/menu2.png'}></MyImageButton1>
+                      <MenuButton1 onClick={this.menuOnClick.bind(this)}></MenuButton1>
                   </View>
                 </View>
                 <View style={this.styles.ratingsContainer}>
@@ -34,7 +35,7 @@ export class HostDashboardSub extends Component {
               </View>
             </View>
             <View style={this.styles.menuContainer}>
-              {this.state.buttons.map(button => {
+              {this.state.rowButtons1.map(button => {
                   return(
                     <View style={this.styles.btnContainer}>
                       <CustomButton4 mytitle={button.title} onClick={()=>{
@@ -47,6 +48,8 @@ export class HostDashboardSub extends Component {
         </View>
       );
     }
+
+
     //#endregion
 
     //#region styles
@@ -102,4 +105,10 @@ export class HostDashboardSub extends Component {
     }
     //#endregion
 
+
+    //#region press handler
+    menuOnClick(){
+      Alert.alert("Menu Pressed!");
+    }
+    //#endregion
   }

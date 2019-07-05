@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Image } from 'react-native';
-export class MyImageButton1 extends Component {
+import { StyleSheet, View, Image, TouchableOpacity } from 'react-native';
+export class MenuButton1 extends Component {
     constructor(props){
         super(props);   
         state:{
@@ -13,11 +13,11 @@ export class MyImageButton1 extends Component {
     render() {
       return (
           <View>
-            <View style={this.styles.container}>
+            <TouchableOpacity style={this.styles.container} onPress={()=>{
+                this.props.onClick();
+            }}>
                 <Image style={this.styles.container} source={ require('./img/menu2.png') }></Image>
-                {/* <Image style={this.styles.container} source={ require(this.props.src) }></Image> */}
-                
-            </View>
+            </TouchableOpacity>
           </View>
       );
     }
