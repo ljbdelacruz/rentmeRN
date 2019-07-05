@@ -22,17 +22,13 @@ class DashboardPage extends React.Component {
         if(this.state.type == 1){
           return (
             <View>
-              <ClientDashboardSubPage navigatePages={(option, param)=>{
-                this.navigationPages(option, param);
-              }}></ClientDashboardSubPage>
+              <ClientDashboardSubPage navigatePages={this.navigationPages.bind(this)}></ClientDashboardSubPage>
             </View>
           )
         }else{
           return (
             <View>
-              <HostDashboardSub navigatePages={(option, param)=>{
-                this.navigationPages(option, param);
-              }}></HostDashboardSub>
+              <HostDashboardSub navigatePages={this.navigationPages.bind(this)}></HostDashboardSub>
             </View>
           )
         }

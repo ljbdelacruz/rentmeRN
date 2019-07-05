@@ -19,7 +19,7 @@ export class HostSettingsMenu extends Component {
       );
     }
     styles = StyleSheet.create({
-                content:{
+        content:{
             flex:1,
             width:'100%',
         },

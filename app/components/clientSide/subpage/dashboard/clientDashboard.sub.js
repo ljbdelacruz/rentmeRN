@@ -88,22 +88,30 @@ export class ClientDashboardSubPage extends Component {
 
     //data fetching in this sub page
     fetchData(){
+      this.fetchAds();
+      this.fetchRecommendedAds();
+      this.fetchCategory();
+    }
+    fetchAds(){
       getAds(function(data){
         this.setState({ads:data});
         this.setState({adsFetchFinish:true});
       }.bind(this), function(err){
-        Alert.alert("Failed",JSON.stringify(err));
-        this.setState({adsFetchFinish:true});
+        this.fetchAds();
       }.bind(this))
+    }
+    fetchCategory(){
       getCategory(function(data){
         this.setState({category:data});
       }.bind(this), function(err){
-        Alert.alert("Failed",JSON.stringify(err));
+        this.fetchCategory();
       }.bind(this))
+    }
+    fetchRecommendedAds(){
       getRecommendedAds(function(data){
         this.setState({recommendedAds:data})
       }.bind(this), function(err){
-        Alert.alert("Failed",JSON.stringify(err));
+        this.fetchRecommendedAds();
       }.bind(this))
     }
 

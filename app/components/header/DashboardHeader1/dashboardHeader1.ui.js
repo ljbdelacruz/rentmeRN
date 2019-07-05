@@ -9,7 +9,7 @@ export class DashboardHeader1 extends Component {
         super(props)
     }
     render(){
-      return (
+      return(
             <View>
                 <View style={this.styles.headContainer}>
                     <View style={this.styles.headDashboard}>
