@@ -15,6 +15,8 @@ export class HostDashboardSub extends Component {
     componentDidMount(){
       this.fetchData();
     }
+    
+    //#region view renderer
     render() {
       return(
         <View>
@@ -45,6 +47,9 @@ export class HostDashboardSub extends Component {
         </View>
       );
     }
+    //#endregion
+
+    //#region styles
     styles = StyleSheet.create({
       menuContainer:{
         flexDirection: 'row',
@@ -81,11 +86,8 @@ export class HostDashboardSub extends Component {
       
 
     });
-
+    //#endregion
     
-
-
-
     //#region networking
     fetchData(){
       this.getUserReview();
