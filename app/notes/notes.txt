@@ -23,5 +23,17 @@ https://www.npmjs.com/package/react-native-star-rating
 https://www.npmjs.com/package/react-native-ratings
 https://www.npmjs.com/package/react-native-modalbox
 https://www.npmjs.com/package/react-native-tableview
+
+
+
+
+References:
+https://reactnativeexample.com/swiper-slider-for-react-native-and-react-native-web/
 https://reactnativeexample.com/tag/carousel/
 https://reactnativeexample.com/react-native-carousel-with-support-for-both-ios-and-android/
+https://reactnativeexample.com/double-sided-react-component-that-flips-180-degrees/
+https://reactnativeexample.com/an-easy-to-use-component-that-allows-displaying-swipeable-buttons/
+https://reactnativeexample.com/react-native-photo-grid/
+https://reactnativeexample.com/custom-transitions-for-react-navigation/
+https://reactnativeexample.com/transaction-navigation-component-for-react-native/
+
