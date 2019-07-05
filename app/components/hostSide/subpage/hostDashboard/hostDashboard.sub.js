@@ -3,6 +3,7 @@ import { StyleSheet, View, Text, Alert } from 'react-native';
 import {CustomButton4} from '../../../buttons/customButton4/customButton4.ui'
 import {RatingsCustom1} from '../../../ratings/ratingsCustom1/ratingsCustom1.ui'
 import {getUserReview} from '../../../../services/api.service'
+import {MyImageButton1} from '../../../buttons/imageButton1/imageButton1.ui'
 export class HostDashboardSub extends Component {
     constructor(prop){
         super(prop);
@@ -19,6 +20,12 @@ export class HostDashboardSub extends Component {
         <View>
             <View style={this.styles.headContainer}>
               <View style={this.styles.headDashboard}>
+
+                <View style={this.styles.ratingsContainer}>
+                  <View style={this.styles.menuBtn}>
+                      <MyImageButton1 src={'/app/assets/icons/menu2.png'}></MyImageButton1>
+                  </View>
+                </View>
                 <View style={this.styles.ratingsContainer}>
                   <RatingsCustom1 review={this.state.review.review} reviewer={this.state.review.reviewer}></RatingsCustom1>
                 </View>
@@ -42,6 +49,7 @@ export class HostDashboardSub extends Component {
       menuContainer:{
         flexDirection: 'row',
         marginTop: 10,
+        
       },
       btnContainer:{
         flex:1,
@@ -59,23 +67,37 @@ export class HostDashboardSub extends Component {
         width:'100%',
         backgroundColor:'#B0F4E6',
         zIndex:1,
-        
+
       },
       ratingsContainer:{
         alignContent:'center',
         flex:1,
         flexDirection:'column'
+      },
+      menuBtn:{
+        width:30,
+        height:30,
       }
+      
 
     });
 
+    
 
+
+
+    //#region networking
     fetchData(){
+      this.getUserReview();
+    }
+    getUserReview(){
       getUserReview(function(data){
         this.setState({review:data});
       }.bind(this), function(err){
-        Alert.alert("Failed", JSON.stringify(err));
+        this.getUserReview();
+        // Alert.alert("Failed", ""+err.message);
       }.bind(this))
     }
+    //#endregion
 
   }
