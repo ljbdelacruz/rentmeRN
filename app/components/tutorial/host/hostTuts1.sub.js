@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, Alert, Image } from 'react-native';
+import { StyleSheet, View, Text, Image } from 'react-native';
 
 export class HostTutsDisplay extends Component {
-    constructor(prop){
-        super(prop);
+    constructor(props){
+        super(props);
         this.state={
             image:'./img/lock.png'
         }
@@ -18,8 +18,9 @@ export class HostTutsDisplay extends Component {
     render() {
       return(
         <View>
-            <View>
-                <Image source={require(this.state.image)}></Image>
+            <View style={this.styles.container}>
+                <Image style={this.styles.image} source={require('./img/lock.png')} />
+                <Text style={this.styles.textStyle}>{this.props.desc}</Text>
             </View>
         </View>
       );
@@ -27,21 +28,19 @@ export class HostTutsDisplay extends Component {
     //#endregion
     //#region styles
     styles = StyleSheet.create({
+        container:{
+            flexDirection:'column',
+            alignItems: 'center', justifyContent: 'center',
+            width:'80%'
+        },
+        image:{
+            width:50, height:50,
+        },
+        textStyle:{
+            fontSize:15,
+            textAlign:'center'
+        }
     });
     //#endregion
-    setupType(type){
-        switch(type){
-            case 1:
-                this.setState({image:'./img/lock.png'})
-                break;
-            case 2:
-                this.setState({image:'./img/lock.png'})
-                break;
-            case 3:
-                this.setState({image:'./img/lock.png'})
-                break;            
-        }
-    }
-
 
   }
