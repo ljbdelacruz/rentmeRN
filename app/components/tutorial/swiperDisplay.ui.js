@@ -17,7 +17,7 @@ export class SwiperTutsDisplay extends Component {
                 {
                     this.props.instructions.map(instruction => {
                         return(<View style={this.styles.viewContainer}>
-                            <HostTutsDisplay desc={instruction.desc}></HostTutsDisplay>
+                            <HostTutsDisplay desc={instruction.desc} image={instruction.image}></HostTutsDisplay>
                         </View>)
                     })
                 }

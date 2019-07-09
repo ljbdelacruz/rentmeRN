@@ -1,31 +1,75 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, Alert } from 'react-native';
 import {SwiperTutsDisplay} from '../../../tutorial/swiperDisplay.ui'
+import {CustomButton1} from '../../../../components/buttons/customButton1/customButton1.ui'
+import {ImageButton1} from '../../../buttons/imageButton/imageButton.ui'
+
 export class OpeningSub extends Component {
     constructor(prop){
         super(prop);
+        global.assetURL="http://192.168.88.23:8080/assets";
         this.state={
             data:[
-              {desc:"Convenient way of looking for home, dormitory within your work area"}, 
-              {desc:"Find the best offered massage, laundry services"}, 
-              {desc:"Secure transactions since we verify the person offering the services and also has review from different users"}
-            ]
+              {desc:"Convenient way of looking for home, dormitory within your work area", image: global.assetURL+'/images/fingerprint.png'}, 
+              {desc:"Find the best offered massage, laundry services", image: global.assetURL+'/images/qr-code.png'},
+              {desc:"Secure transactions since we verify the person offering the services and also has review from different users", image:global.assetURL+'/images/fingerprint.png'}
+            ],
+            display:{text:"Do not have an account yet Register ?", button:'    HERE', sub:"Sign in using the following:", fbImage: global.assetURL+'/images/facebook.png'}
           }
     }
-
     render() {
       return (
-        <View style={this.styles.container}>
-            <SwiperTutsDisplay instructions={this.state.data}></SwiperTutsDisplay>
-            
-        </View>
+        <View>
+          <View style={this.styles.containerHeader}>
+              <SwiperTutsDisplay instructions={this.state.data} ></SwiperTutsDisplay>
+          </View>
+          <View style={this.styles.button}>
+            <CustomButton1 title='Login to your account'></CustomButton1>
+            <View style={this.styles.containerSub}>
+              <Text>{this.state.display.text}</Text>
+              <Text>{this.state.display.button}</Text>
+            </View>
+            <Text>{this.state.display.sub}</Text>
 
+            <View style={[this.styles.containerSub, this.styles.buttonContainer]}>
+              <View style={this.styles.fbButton}>
+                <ImageButton1 onclick={()=>{
+                  Alert.alert("Success", "Facebook Clicked!");
+                }} image={this.state.display.fbImage}></ImageButton1>
+              </View>
+            </View>
+          </View>
+        </View>
       );
     }
     styles = StyleSheet.create({
-        container: {
+        containerHeader: {
             width:'100%',
             height:300,
+            backgroundColor:'#B0F4E6',
+            borderBottomLeftRadius:10,
+            borderBottomRightRadius:10,
+        },
+        containerBody:{
+          width:'100%',
+        },
+        containerSub:{
+          flexDirection:'row',
+          alignContent:'center',
+          textAlign:'center'
+        },
+        button:{
+          marginTop:10,
+          width:'90%',
+          marginLeft:'5%'          
+        },
+        buttonContainer:{
+          marginTop:10,
+        },
+        fbButton:{
+          height:50,
+          width:50,
+          // backgroundColor:'black'
         }
     });
 

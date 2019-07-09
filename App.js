@@ -7,7 +7,7 @@ import ManageAdsPage from './app/pages/manageAds/manageAds.page'
 import ExperimentPage  from './app/pages/experiment/experiment.page'
 import OpeningPage from './app/pages/opening/opening.page'
 const MainNavigator = createStackNavigator({
-  Experiment:{screen: ExperimentPage, key:'experiment', navigationOptions: {header: null}},
+  // Experiment:{screen: ExperimentPage, key:'experiment', navigationOptions: {header: null}},
   Opening:{screen: OpeningPage, key:'opening', navigationOptions: {header: null}},
   Login: {screen: LoginPage, navigationOptions: {header: null}, key: 'login'}, 
   Dashboard: {screen: DashboardPage, key:'dashboard', navigationOptions: {header: null}},

@@ -9,6 +9,7 @@ export class CustomButton2 extends Component {
           <View>
             <TouchableOpacity style={this.styles.container}>
               <Image source={require('./img/sphone.png')} style={this.styles.imagecontainer}></Image>
+              {/* <Image source={{uri:this.props.image}} style={this.styles.imagecontainer}></Image> */}
               <Text style={this.styles.text}>{this.props.mytitle}</Text>
             </TouchableOpacity>
           </View>

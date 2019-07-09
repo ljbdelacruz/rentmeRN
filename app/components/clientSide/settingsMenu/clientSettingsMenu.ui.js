@@ -5,6 +5,12 @@ import {CustomButton2} from '../../buttons/customButton2/customButton2.ui'
 export class ClientSettingsMenu extends Component {
     constructor(prop){
         super(prop);
+        this.baseURL="";
+        this.state={
+            options:[
+                {title:'Account Settings', image:''}
+            ]
+        }
     }
     render(){
       return (

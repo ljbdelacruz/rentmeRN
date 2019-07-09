@@ -19,7 +19,7 @@ export class HostTutsDisplay extends Component {
       return(
         <View>
             <View style={this.styles.container}>
-                <Image style={this.styles.image} source={require('./img/lock.png')} />
+                <Image style={this.styles.image} source={{uri:this.props.image}} />
                 <Text style={this.styles.textStyle}>{this.props.desc}</Text>
             </View>
         </View>
@@ -34,7 +34,7 @@ export class HostTutsDisplay extends Component {
             width:'80%'
         },
         image:{
-            width:50, height:50,
+            width:100, height:100,
         },
         textStyle:{
             fontSize:15,
