@@ -18,8 +18,8 @@ class SelectLanguagePage extends React.Component {
     }
     render() {
       return (
-        <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center' }}>
-          <SelectLanguageButton1 onSelected={(value)=>{
+        <View>
+          <SelectLanguageButton1 languages={this.state.languages} onSelected={(value)=>{
             global.language=value.value;
             Alert.alert("Language Selected!",value.label);
           }}></SelectLanguageButton1>

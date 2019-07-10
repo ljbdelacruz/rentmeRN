@@ -4,25 +4,18 @@ import { CustomPicker } from 'react-native-custom-picker'
 export class SelectLanguageButton1 extends Component {
     constructor(props){
         super(props);
-        global.assetURL="http://192.168.88.23:8080/assets";
-        this.state={
-            languages:[{label: 'English', value: 1, image:global.assetURL+'/images/usa.png'},
-                       {label: 'German', value: 2, image:global.assetURL+'/images/germany.png'},
-                       {label: 'Japanese', value: 3, image:global.assetURL+'/images/japan.png'},
-                      ]
-        }
     }
     render() {
       return (
         <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center' }}> 
           <CustomPicker
           placeholder={'Select Language'}
-          options={this.state.languages}
+          options={this.props.languages}
           getLabel={item => item.label}
           fieldTemplate={this.renderField}
           optionTemplate={this.renderOption}
           headerTemplate={this.renderHeader}
-          onValueChange={value => {
+          onValueChange={(value) => {
               this.props.onSelected(value);
           }}
         />
