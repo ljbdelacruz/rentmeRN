@@ -18,14 +18,30 @@ class SelectLanguagePage extends React.Component {
     }
     render() {
       return (
-        <View>
-          <SelectLanguageButton1 languages={this.state.languages} onSelected={(value)=>{
-            global.language=value.value;
-            Alert.alert("Language Selected!",value.label);
-          }}></SelectLanguageButton1>
+        <View style={this.styles.container}>
+          <View style={this.styles.languageContainer}>
+            <SelectLanguageButton1 languages={this.state.languages} onSelected={(value)=>{
+              global.language=value.value;
+              Alert.alert("Language Selected!",value.label);
+            }}></SelectLanguageButton1>
+          </View>
         </View>
       );
     }
+
+    styles = StyleSheet.create({
+      container:{
+        height:'100%',
+        width:'100%'
+      },
+      languageContainer:{
+        width:'90%',
+        height:100,
+        marginTop:10,
+        marginLeft:'5%'
+
+      }
+    })
     
 }
 

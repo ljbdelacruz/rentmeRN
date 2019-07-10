@@ -7,7 +7,7 @@ export class SelectLanguageButton1 extends Component {
     }
     render() {
       return (
-        <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center' }}> 
+        <View> 
           <CustomPicker
           placeholder={'Select Language'}
           options={this.props.languages}
@@ -34,11 +34,12 @@ export class SelectLanguageButton1 extends Component {
       renderField(settings) {
         const { selectedItem, defaultText, getLabel, clear } = settings
         return (
-          <View>
+          <View style={slb1styles.container}>
             <View>
               <Text>Please Select Language</Text>
               {selectedItem && (
                 <View style={slb1styles.innerContainer}>
+                  <Image style={slb1styles.imageDisplay} source={{uri:selectedItem.image}} />
                   <Text style={[slb1styles.text, { color: selectedItem.color }]}>
                     {getLabel(selectedItem)}
                   </Text>
@@ -55,6 +56,7 @@ export class SelectLanguageButton1 extends Component {
             <View style={slb1styles.optionContainer}>
               <View style={slb1styles.innerContainer}>
                 <View style={[slb1styles.box]}>
+                  
                   <Image style={slb1styles.image} source={{uri: item.image}} />   
                 </View>
                 <Text style={{ color: 'black', alignSelf: 'flex-start' }}>{getLabel(item)}</Text>
@@ -65,6 +67,7 @@ export class SelectLanguageButton1 extends Component {
 
   }
   slb1styles = StyleSheet.create({
+
     container: {
         borderColor: 'grey',
         borderWidth: 1,
@@ -75,7 +78,8 @@ export class SelectLanguageButton1 extends Component {
         alignItems: 'stretch'
       },
       text: {
-        fontSize: 18
+        fontSize: 18,
+        marginLeft:10
       },
       headerFooterContainer: {
         padding: 10,
@@ -99,5 +103,10 @@ export class SelectLanguageButton1 extends Component {
       image:{
         width:'100%',
         height:'100%'
+      },
+      imageDisplay:{
+          width:50,
+          height:30,
       }
+
   });
