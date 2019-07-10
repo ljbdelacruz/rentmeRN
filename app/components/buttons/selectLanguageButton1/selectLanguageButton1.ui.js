@@ -71,7 +71,8 @@ export class SelectLanguageButton1 extends Component {
     container: {
         borderColor: 'grey',
         borderWidth: 1,
-        padding: 15
+        padding: 15,
+        borderRadius:10
       },
       innerContainer: {
         flexDirection: 'row',

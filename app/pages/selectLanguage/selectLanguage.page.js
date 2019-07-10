@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, ScrollView, Button, Alert, Text, Image, TouchableOpacity} from 'react-native';
-import {SelectableRow1} from '../../components/customrow/selectableRow1/selectableRow1.ui'
-import { CustomPicker } from 'react-native-custom-picker'
+import { View, StyleSheet, Alert} from 'react-native';
 import {SelectLanguageButton1} from '../../components/buttons/selectLanguageButton1/selectLanguageButton1.ui'
 
 class SelectLanguagePage extends React.Component {
