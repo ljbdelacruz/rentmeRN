@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, Alert } from 'react-native';
+import { StyleSheet, View, Text, Alert, TouchableOpacity } from 'react-native';
 import {SwiperTutsDisplay} from '../../../tutorial/swiperDisplay.ui'
 import {CustomButton1} from '../../../../components/buttons/customButton1/customButton1.ui'
 import {ImageButton1} from '../../../buttons/imageButton/imageButton.ui'
@@ -25,20 +25,26 @@ export class OpeningSub extends Component {
           </View>
           <View style={this.styles.button}>
             <CustomButton1 title='Login to your account'></CustomButton1>
+          </View>
+          <View style={this.styles.containerSub1}>
             <View style={this.styles.containerSub}>
-              <Text>{this.state.display.text}</Text>
-              <Text>{this.state.display.button}</Text>
+                  <Text>{this.state.display.text}</Text>
+                  <TouchableOpacity onPress={()=>{
+                    Alert.alert("Success", "Pressed HERE")
+                  }}>
+                  <Text style={this.styles.hereButton}>{this.state.display.button}</Text>
+                </TouchableOpacity>
             </View>
             <Text>{this.state.display.sub}</Text>
+          </View>
 
-            <View style={[this.styles.containerSub, this.styles.buttonContainer]}>
+          <View style={[this.styles.containerSub, this.styles.buttonContainer]}>
               <View style={this.styles.fbButton}>
                 <ImageButton1 onclick={()=>{
                   Alert.alert("Success", "Facebook Clicked!");
                 }} image={this.state.display.fbImage}></ImageButton1>
               </View>
             </View>
-          </View>
         </View>
       );
     }
@@ -53,18 +59,24 @@ export class OpeningSub extends Component {
         containerBody:{
           width:'100%',
         },
+        containerSub1:{
+          width:'90%',
+          marginLeft:'5%',
+          alignItems: 'center', justifyContent: 'center'
+        },
         containerSub:{
           flexDirection:'row',
-          alignContent:'center',
-          textAlign:'center'
         },
         button:{
           marginTop:10,
           width:'90%',
-          marginLeft:'5%'          
+          marginLeft:'5%' ,
         },
         buttonContainer:{
           marginTop:10,
+        },
+        hereButton:{
+          color:'blue'         
         },
         fbButton:{
           height:50,
