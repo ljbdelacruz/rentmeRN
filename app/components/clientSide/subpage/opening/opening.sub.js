@@ -14,7 +14,7 @@ export class OpeningSub extends Component {
               {desc:"Find the best offered massage, laundry services", image: global.assetURL+'/images/qr-code.png'},
               {desc:"Secure transactions since we verify the person offering the services and also has review from different users", image:global.assetURL+'/images/fingerprint.png'}
             ],
-            display:{text:"Do not have an account yet Register ?", button:'    HERE', sub:"Sign in using the following:", fbImage: global.assetURL+'/images/facebook.png'}
+            display:{text:"Do not have an account yet Register? ", button:'  HERE', sub:"Sign in using the following:", fbImage: global.assetURL+'/images/facebook.png', gmImage: global.assetURL+'/images/gmail.png'}
           }
     }
     render() {
@@ -24,27 +24,29 @@ export class OpeningSub extends Component {
               <SwiperTutsDisplay instructions={this.state.data} ></SwiperTutsDisplay>
           </View>
           <View style={this.styles.button}>
-            <CustomButton1 title='Login to your account'></CustomButton1>
+            <CustomButton1 title='Login to your account' onPress={()=>{Alert.alert("Go to Login")}}></CustomButton1>
           </View>
           <View style={this.styles.containerSub1}>
             <View style={this.styles.containerSub}>
                   <Text>{this.state.display.text}</Text>
-                  <TouchableOpacity onPress={()=>{
-                    Alert.alert("Success", "Pressed HERE")
-                  }}>
-                  <Text style={this.styles.hereButton}>{this.state.display.button}</Text>
-                </TouchableOpacity>
+                  <TouchableOpacity onPress={()=>{Alert.alert("Success", "Pressed HERE")}}>
+                    <Text style={this.styles.hereButton}>{this.state.display.button}</Text>
+                  </TouchableOpacity>
             </View>
             <Text>{this.state.display.sub}</Text>
-          </View>
-
-          <View style={[this.styles.containerSub, this.styles.buttonContainer]}>
-              <View style={this.styles.fbButton}>
+            <View style={[this.styles.containerSub, this.styles.buttonContainer]}>
+              <View style={this.styles.socialButton}>
                 <ImageButton1 onclick={()=>{
                   Alert.alert("Success", "Facebook Clicked!");
                 }} image={this.state.display.fbImage}></ImageButton1>
               </View>
+              <View style={this.styles.socialButton}>
+                <ImageButton1 onclick={()=>{
+                  Alert.alert("Success", "Gmail Clicked!");
+                }} image={this.state.display.gmImage}></ImageButton1>
+              </View>
             </View>
+          </View>
         </View>
       );
     }
@@ -70,6 +72,7 @@ export class OpeningSub extends Component {
         button:{
           marginTop:10,
           width:'90%',
+          height:50,
           marginLeft:'5%' ,
         },
         buttonContainer:{
@@ -78,10 +81,11 @@ export class OpeningSub extends Component {
         hereButton:{
           color:'blue'         
         },
-        fbButton:{
+        socialButton:{
+          marginTop:10,
           height:50,
           width:50,
-          // backgroundColor:'black'
+          marginRight:10,
         }
     });
 

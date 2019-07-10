@@ -25,6 +25,7 @@ https://www.npmjs.com/package/react-native-modalbox
 https://www.npmjs.com/package/react-native-tableview
 https://reactnativeexample.com/swiper-slider-for-react-native-and-react-native-web/
 https://www.npmjs.com/package/react-native-image-base64
+https://reactnativeexample.com/react-native-customizable-picker-component/
 
 
 

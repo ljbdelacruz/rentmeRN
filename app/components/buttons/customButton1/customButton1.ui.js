@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Button, View } from 'react-native';
+import { Platform, StyleSheet, Button, View, TouchableOpacity } from 'react-native';
 export class CustomButton1 extends Component {
     constructor(prop){
         super(prop);
