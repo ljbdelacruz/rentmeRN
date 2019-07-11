@@ -7,6 +7,7 @@ class SelectLanguagePage extends React.Component {
         super(props);
         const {navigate} = this.props.navigation;
         global.assetURL="http://192.168.88.23:8080/assets";
+        global.LNModalProperties={header:'Select Language'}
         this.state={
           languages:[{label: 'English', value: 1, image:global.assetURL+'/images/usa.png'},
                      {label: 'German', value: 2, image:global.assetURL+'/images/germany.png'},
@@ -27,7 +28,7 @@ class SelectLanguagePage extends React.Component {
           <View style={this.styles.subContainer}>
             <View style={this.styles.subContainer}></View>
             <View style={this.styles.applyButton}>
-              <CustomButton1 title={this.state.button.label} onPress={()=>{Alert.alert("LOGIN PRESSED")}}/>
+              <CustomButton1 title={this.state.button.label} onPress={()=>{Alert.alert("APPLY PRESSED")}}/>
             </View>
           </View>
         </View>

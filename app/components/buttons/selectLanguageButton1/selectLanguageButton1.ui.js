@@ -1,3 +1,13 @@
+/*
+  How To Use:
+
+  please set this modal properties for global in your main app
+  global.LNModalProperties={header:'Please Select Language'}
+*/
+
+
+
+
 import React, { Component } from 'react';
 import { StyleSheet, TouchableOpacity, Text, View, Image } from 'react-native';
 import { CustomPicker } from 'react-native-custom-picker'
@@ -6,7 +16,7 @@ export class SelectLanguageButton1 extends Component {
         super(props);
     }
     render() {
-      return (
+      return (        
         <View> 
           <CustomPicker
           defaultValue={this.props.defValue}
@@ -26,7 +36,7 @@ export class SelectLanguageButton1 extends Component {
     renderHeader() {
         return (
             <View style={slb1styles.headerFooterContainer}>
-              <Text>Please Select Language</Text>
+              <Text>{global.LNModalProperties.header}</Text>
             </View>
         )
       }
@@ -37,7 +47,7 @@ export class SelectLanguageButton1 extends Component {
         return (
           <View style={slb1styles.container}>
             <View>
-              <Text>Please Select Language</Text>
+              <Text>{global.LNModalProperties.header}</Text>
               {selectedItem && (
                 <View style={slb1styles.innerContainer}>
                   <Image style={slb1styles.imageDisplay} source={{uri:selectedItem.image}} />
