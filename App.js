@@ -9,8 +9,8 @@ import OpeningPage from './app/pages/opening/opening.page'
 import SelectLanguagePage  from './app/pages/selectLanguage/selectLanguage.page'
 import RegistrationPage from './app/pages/registration/registration.page'
 const MainNavigator = createStackNavigator({
-  // Experiment:{screen: ExperimentPage, key:'experiment', navigationOptions: {header: null}},
-  // SelectLanguage:{screen: SelectLanguagePage, key:'selectlanguage', navigationOptions: {header: null}},
+  Experiment:{screen: ExperimentPage, key:'experiment', navigationOptions: {header: null}},
+  SelectLanguage:{screen: SelectLanguagePage, key:'selectlanguage', navigationOptions: {header: null}},
   Registration:{screen: RegistrationPage, key:'registration', navigationOptions: {header: null}},
   Opening:{screen: OpeningPage, key:'opening', navigationOptions: {header: null}},
   Login: {screen: LoginPage, navigationOptions: {header: null}, key: 'login'}, 
