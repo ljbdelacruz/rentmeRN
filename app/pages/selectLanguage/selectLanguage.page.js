@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { View, StyleSheet, Alert} from 'react-native';
 import {SelectLanguageButton1} from '../../components/buttons/selectLanguageButton1/selectLanguageButton1.ui'
 import {CustomButton1} from '../../components/buttons/customButton1/customButton1.ui'
+import {CommonHeader1} from '../../components/header/commonHeader1/commonHeader.ui'
+
 class SelectLanguagePage extends React.Component {
     constructor(props) {
         super(props);
@@ -14,12 +16,19 @@ class SelectLanguagePage extends React.Component {
                      {label: 'Japanese', value: 3, image:global.assetURL+'/images/japan.png'},
           ],
           defaultLang:{ label: 'English', value: 1, image:global.assetURL+'/images/usa.png'},
+          headerProp:{leftButton:global.assetURL+"/images/l-arrow.png"},
           button:{label:'APPLY'}
         }
     }
     render(){
       return (
         <View style={this.styles.container}>
+          <View style={this.styles.headerContainer}>
+            <CommonHeader1 onClickLeft={()=>{
+                Alert.alert("Clicked Back Button!");              
+            }} image={this.state.headerProp.leftButton} />
+          </View>
+
           <View style={this.styles.languageContainer}>
             <SelectLanguageButton1 defValue={this.state.defaultLang} languages={this.state.languages} onSelected={(value)=>{
               global.language=value.value;
@@ -40,9 +49,14 @@ class SelectLanguagePage extends React.Component {
         height:'100%',
         width:'100%'
       },
+      headerContainer:{
+        width:'100%',
+        height:60,
+        backgroundColor:'#B0F4E6'
+      },
       languageContainer:{
         width:'90%',
-        height:100,
+        height:50,
         marginTop:10,
         marginLeft:'5%',
       },
@@ -51,13 +65,11 @@ class SelectLanguagePage extends React.Component {
       },
       applyButton:{
         width:'90%',
-        flex:0.3,
+        flex:0.15,
         marginLeft:'5%'       
       }
     })
     
 }
-
-
 export default SelectLanguagePage;
 
