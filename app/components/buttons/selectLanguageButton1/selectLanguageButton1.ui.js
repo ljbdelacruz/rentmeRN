@@ -9,6 +9,7 @@ export class SelectLanguageButton1 extends Component {
       return (
         <View> 
           <CustomPicker
+          defaultValue={this.props.defValue}
           placeholder={'Select Language'}
           options={this.props.languages}
           getLabel={item => item.label}
