@@ -14,7 +14,13 @@ class RegistrationPage extends React.Component {
       if(this.state.type == 1){
         return(
             <View>
-                <ClientRegistrationSub></ClientRegistrationSub>
+                <ClientRegistrationSub navigatePage={(type)=>{
+                  switch(type){
+                    case 1:
+                      //back
+                      break;
+                  }
+                }}></ClientRegistrationSub>
             </View>
         );
       }else{

@@ -23,7 +23,7 @@ export class ClientRegistrationSub extends Component {
             <View style={this.styles.containerHeader}>
                 <View style={this.styles.headerContainer}>
                   <CommonHeader1 onClickLeft={()=>{
-                    Alert.alert("Clicked Back Button!");              
+                    this.props.navigatePage(1);
                   }} image={this.state.backButton.source} />
                 </View>
                 <View style={this.styles.inputSub}>
