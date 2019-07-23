@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Modal, Alert, Text } from 'react-native';
-export class ViewAdInfo1 extends Component {
+import { View, StyleSheet, Modal, Alert, Text, TouchableOpacity, Button } from 'react-native';
+export class SelectCategoryModal extends Component {
     state={
         visible:false
     }
+
+    
     constructor(props){
         super(props)
         this.state.visible=this.props.isVisible;
@@ -13,14 +15,18 @@ export class ViewAdInfo1 extends Component {
           <Modal 
           animationType="slide"
           transparent={false}
-          visible={this.state.visible}
+          visible={this.props.visible}
           onRequestClose={() => {
             this.props.onClose();
-            Alert.alert('Modal has been closed.');
           }}>
               <View style={this.styles.container}>
-                  <View style={this.styles.upperContainer}></View>
-                  <Text>Modal Info</Text>
+                  <View style={this.styles.upperContainer}>
+                    <Button title="Close" onPress={()=>{
+                        this.props.onClose();
+
+                    }}></Button>
+                  </View>
+                  <Text>Select Category</Text>
               </View>             
           </Modal>
       );
