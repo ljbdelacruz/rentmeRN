@@ -46,11 +46,6 @@ https://reactnativeexample.com/a-beautiful-customizable-react-native-button-comp
 https://reactnativeexample.com/f2-charts-for-react-native/
 https://reactnativeexample.com/react-native-flashbar-and-top-notification-alert-utility/
 
-
-
-
-
-
 xcode 10.2.1 download url:
 https://stackoverflow.com/questions/10335747/how-to-download-xcode-dmg-or-xip-file
 

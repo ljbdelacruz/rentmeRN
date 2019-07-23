@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, ScrollView, Alert, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, ScrollView, Alert, TouchableOpacity, TextInput, Text } from 'react-native';
 import {ClientDashboardSubPage} from '../../components/clientSide/subpage/dashboard/clientDashboard.sub'
 import {getAds, getCategory, getRecommendedAds} from '../../services/api.service'
 import {HostDashboardSub} from '../../components/hostSide/subpage/hostDashboard/hostDashboard.sub'
 
-class DashboardPage extends React.Component {
+class CreateAdsPage extends React.Component {
     static navigationOptions = {
       title: 'Dashboard',
     };
@@ -20,7 +20,10 @@ class DashboardPage extends React.Component {
         const {navigate} = this.props.navigation;
         return (
             <View>
-                <Text>Create Ads</Text>                
+                <Text>Create Ads</Text>     
+                <TextInput placeholder="Title" />
+                <TextInput placeholder="Description" multiline={true} style={{height:100, width:'90%', borderWidth:1, borderColor:'grey', textAlignVertical: 'top', marginLeft:'5%'}} />
+                <TextInput placeholder="Price" />
             </View>
         )
         
@@ -53,5 +56,5 @@ class DashboardPage extends React.Component {
 
 
   }
-export default DashboardPage;
+export default CreateAdsPage;
 
