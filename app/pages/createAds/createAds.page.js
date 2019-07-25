@@ -5,6 +5,34 @@ import {getAds, getCategory, getRecommendedAds} from '../../services/api.service
 import {HostDashboardSub} from '../../components/hostSide/subpage/hostDashboard/hostDashboard.sub'
 import {SelectCategoryButton1} from '../../components/buttons/selectCategoryButton1/selectCategory.button'
 import {MyImageGrid1} from '../../components/container/imageContainer/myimagegrid1/myImageGrid1.ui'
+import ImagePicker from 'react-native-image-picker';
+
+const options = {
+  title: 'Select Avatar',
+  customButtons: [{ name: 'fb', title: 'Choose Photo from Facebook' }],
+  storageOptions: {
+    skipBackup: true,
+    path: 'images',
+  },
+};
+
+ImagePicker.showImagePicker(options, (response) => {
+  console.log('Response = ', response);
+
+  if (response.didCancel) {
+    console.log('User cancelled image picker');
+  } else if (response.error) {
+    console.log('ImagePicker Error: ', response.error);
+  } else if (response.customButton) {
+    console.log('User tapped custom button: ', response.customButton);
+  } else {
+    const source = { uri: response.uri };
+    this.setState({
+      avatarSource: source,
+    });
+  }
+});
+
 class CreateAdsPage extends React.Component {
     static navigationOptions = {
       title: 'Dashboard',
@@ -53,14 +81,18 @@ class CreateAdsPage extends React.Component {
                         this.setState({selectCategory:this.state.categories});
                     }}/>
                 </View>
-                <TouchableOpacity onPress={()=>{
+                
+
+                {/* <TouchableOpacity onPress={()=>{
                     this.setState({images:[
                         'https://lorempixel.com/200/200/animals',
                         'https://lorempixel.com/200/200/city'
                     ]})
                 }}>
                     <Text>Upload Image...</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
+                <Image source={this.state.avatarSource} style={styles.uploadAvatar} />
+
                 <MyImageGrid1 images={this.state.images}></MyImageGrid1>
             </View>
         )        
@@ -96,6 +128,12 @@ class CreateAdsPage extends React.Component {
     }
 
 
+
   }
+
+
+
+  
+
 export default CreateAdsPage;
 

@@ -33,6 +33,19 @@ export class MyImageGrid1 extends Component {
                 </View>
             </View>
           )
+      }else if(this.props.images.length > 3){
+        <View style={this.styles.container}>
+        <Image style={this.styles.item3} source={{uri:this.props.images[0]}}></Image>
+        <View style={this.styles.container2}>
+            <Image style={this.styles.item31} source={{uri:this.props.images[1]}}></Image>
+            <View style={this.styles.item32}>
+                <View>
+                    <Text></Text>
+                </View>
+            </View>
+            <Image style={this.styles.item32} source={{uri:this.props.images[2]}}></Image>
+        </View>
+        </View>
       }
 
 
@@ -77,7 +90,14 @@ export class MyImageGrid1 extends Component {
         },
         item32:{
             width:'45%', height:'43%',
+        },
+        item4:{
+            width:'100%',
+        },
+        transBG:{
+
         }
+
 
 
         
