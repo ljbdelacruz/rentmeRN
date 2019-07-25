@@ -39,8 +39,8 @@ export class MyImageGrid1 extends Component {
         <View style={this.styles.container2}>
             <Image style={this.styles.item31} source={{uri:this.props.images[1]}}></Image>
             <View style={this.styles.item32}>
-                <View>
-                    <Text></Text>
+                <View style={{width:'100%', height:'100%', backgroundColor:'grey'}}>
+                    <Text style={{fontSize:20, textAlign:'center'}}>+{this.props.images.length}</Text>
                 </View>
             </View>
             <Image style={this.styles.item32} source={{uri:this.props.images[2]}}></Image>
